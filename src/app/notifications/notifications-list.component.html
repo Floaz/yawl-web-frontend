@@ -1,0 +1,28 @@
+<ul>
+	<li *ngFor="let item of displayedNotifications" [class]="'notification-list-item ' + item.priority" [class.selected]="item.id == selectedItem">
+		<a (click)="onClick($event, item)" (contextmenu)="onContextMenu($event, item)">
+			<div class="notification-icon INFORMATION" [hidden]="item.priority != 'INFORMATION'">
+				<span class="fa fa-info-circle"></span>
+			</div>
+			<div class="notification-icon WARNING" [hidden]="item.priority != 'WARNING'">
+				<span class="fa fa-question-circle"></span>
+			</div>
+			<div class="notification-icon CRITICAL" [hidden]="item.priority != 'CRITICAL'">
+				<span class="fa fa-exclamation-triangle"></span>
+			</div>
+			<div class="notification-data">
+				<div class="notification-title">{{item.title}}</div><span class="fa fa-comment" *ngIf="item.comments.length > 0"></span>
+				<div class="notification-meta" *ngFor="let data of item.displayData">
+					{{data.key}}: {{data.value}}
+				</div>
+			</div>
+			<div class="notification-creationdate">
+				since {{item.creationDate | timedifference | duration}}
+			</div>
+		</a>
+	</li>
+</ul>
+
+<div class="notification-list-empty" *ngIf="displayedNotifications.length == 0">
+	<span class="fa fa-check green-text"></span> There are no notifications!
+</div>

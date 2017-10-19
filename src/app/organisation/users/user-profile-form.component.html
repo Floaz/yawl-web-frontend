@@ -1,0 +1,59 @@
+<form  (ngSubmit)="save()" #form="ngForm">
+
+	<div class="row">
+		<label for="userLastname">Lastname</label>
+		<input id="userLastname"
+			   name="lastname"
+			   class="nice-input-field"
+			   minlength="3"
+			   maxlength="50"
+			   [(ngModel)]="lastname"
+			   required/>
+	</div>
+
+	<div class="row">
+		<label for="userFirstname">Firstname</label>
+		<input id="userFirstname"
+			   name="firstname"
+			   class="nice-input-field"
+			   minlength="3"
+			   maxlength="50"
+			   [(ngModel)]="firstname"
+			   required/>
+	</div>
+
+	<div class="row">
+		<label for="username">Username</label>
+		<input id="username"
+			   name="username"
+			   class="nice-input-field"
+			   minlength="3"
+			   maxlength="50"
+			   [(ngModel)]="username"
+			   required/>
+	</div>
+
+	<div class="row">
+		<label for="description">Description</label>
+		<textarea id="description"
+			   name="description"
+			   class="nice-input-field"
+			   [(ngModel)]="description">
+		</textarea>
+	</div>
+
+	<div class="row">
+		<label for="notes">Notes</label>
+		<textarea id="notes"
+			   name="notes"
+			   class="nice-text-area"
+			   [(ngModel)]="notes">
+		</textarea>
+	</div>
+
+	<div class="form-actions noborder">
+		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+			Change profile data <span class="fa fa-send"></span>
+		</button>
+	</div>
+</form>

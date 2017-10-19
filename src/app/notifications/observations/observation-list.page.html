@@ -1,0 +1,37 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Observations</h1>
+	</div>
+
+	<div class="row">
+		<button md-raised-button color="accent" type="button" (click)="navigateToNewObservationPage()">
+			Create observation
+		</button>
+	</div>
+
+	<div class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-body">
+					<div *ngFor="let item of observations" class="nice-list-element">
+						<div class="nice-list-title">{{item.title}}</div>
+						<div class="nice-list-subtitle">{{item.type | observername}}</div>
+						<ul class="nice-list-actions">
+							<li>
+								<button (click)="navigateToObservationSettings(item)">
+									<span class="fa fa-cogs"></span>
+								</button>
+							</li>
+							<li>
+								<button (click)="removeObservation(item)">
+									<span class="fa fa-trash-o"></span>
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</default-page>

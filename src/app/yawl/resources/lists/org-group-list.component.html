@@ -1,0 +1,15 @@
+<div class="resource-list with-border">
+	<div *ngFor="let item of sortedItems"
+		 class="resource-list-element selectable with-avatar"
+		 [class.selected]="selectedItem && item.id == selectedItem.id"
+		 (click)="onSelect(item, $event)">
+		<div class="avatar">
+			<span class="circle org-group">P</span>
+		</div>
+		<div class="modern-list-title">{{item.name}}</div>
+		<div class="modern-list-description">{{item.description}}</div>
+	</div>
+	<div class="resource-list-empty" *ngIf="sortedItems.length == 0">
+		<span class="fa fa-circle"></span> {{noItemsMessage}}
+	</div>
+</div>

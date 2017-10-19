@@ -1,0 +1,37 @@
+
+<default-page>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header gray">
+				<h2><span class="fa fa-user"></span> Reoffer</h2>
+			</div>
+			<div class="card-content" *ngIf="workItem">
+				<form  (ngSubmit)="reoffer()" #form="ngForm">
+
+					<div class="row">
+						<label for="notes">Work Item</label>
+						<div class="flow-text">{{workItem.id}}</div>
+					</div>
+
+					<div class="row">
+						<label for="documentation">Participants to which offered</label>
+						<users-select [(users)]="users"></users-select>
+					</div>
+
+					<div class="form-actions noborder">
+						<button md-raised-button color="primary" type="button" (click)="cancel()">
+							<span class="fa fa-arrow-left"></span> Cancel
+						</button>
+						<button md-raised-button color="primary" type="submit">
+							Reoffer <span class="fa fa-send"></span>
+						</button>
+					</div>
+
+				</form>
+
+			</div>
+		</div>
+	</div>
+
+</default-page>

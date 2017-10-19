@@ -1,0 +1,51 @@
+<form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
+
+	<div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <input mdInput
+                    placeholder="Label"
+                    name="name"
+                    minlength="3"
+                    maxlength="50"
+                    [(ngModel)]="role.name"
+                    required>
+        </md-form-field>
+	</div>
+
+	<div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Description (Optional)"
+                    name="description"
+                    rows="4"
+                    [(ngModel)]="role.description">
+            </textarea>
+        </md-form-field>
+	</div>
+
+	<div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Notes (Optional)"
+                    name="notes"
+                    rows="4"
+                    [(ngModel)]="role.notes">
+            </textarea>
+        </md-form-field>
+	</div>
+
+	<div class="row">
+		<label class="yd-form-label">Belongs to (Optional)</label>
+		<role-select [role]="role.belongsTo" (roleChanged)="role.belongsTo = $event" [ignore]="ignoredRoles"></role-select>
+	</div>
+
+	<div class="form-actions noborder">
+		<button md-raised-button color="primary" type="button" (click)="cancel()">
+			<span class="fa fa-arrow-left"></span> Cancel
+		</button>
+		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+			Save role <span class="fa fa-send"></span>
+		</button>
+	</div>
+
+</form>

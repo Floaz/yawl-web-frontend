@@ -1,0 +1,51 @@
+
+<default-page>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header gray">
+				<h2><span class="fa fa-user"></span> Upload specification</h2>
+			</div>
+			<div class="card-content">
+				<div *ngIf="!fileName">
+					<div class="row">
+						<div [class.hover]="dropZoneOver"
+							 class="specification-drop-zone"
+							 (dragenter)="onDragEnter($event)"
+							 (dragleave)="onDragLeave($event)"
+							 (dragover)="onDragOver($event)"
+							 (drop)="onDrop($event)">
+							Drop specification here
+						</div>
+					</div>
+
+					<div class="row">
+						or select with file explorer:
+						<input type="file" (change)="onFileSelected($event)" />
+					</div>
+				</div>
+
+				<div *ngIf="fileName" class="row">
+					<div class="specification-upload-info">
+						Upload: {{fileName}}
+
+						<button class="btn btn-flat" (click)="reset()">
+							<span class="fa fa-times"></span>
+						</button>
+					</div>
+				</div>
+
+				<div class="form-actions noborder">
+					<button md-raised-button color="primary" type="button" (click)="gotoSpecificationsPage()">
+						<span class="fa fa-arrow-left"></span> Cancel
+					</button>
+					<button md-raised-button color="primary" type="submit" [disabled]="!specificationData" (click)="uploadSepcification()">
+						Upload <span class="fa fa-send"></span>
+					</button>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</default-page>

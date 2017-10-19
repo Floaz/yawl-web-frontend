@@ -1,0 +1,37 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Manage Work Items</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row search-box-wrapper">
+        <input #searchBox
+                type="text"
+                class="search-box"
+                [(ngModel)]="searchQuery"
+                placeholder="Search">
+	</div>
+
+	<div class="row">
+		<div class="card">
+
+            <md-tab-group [selectedIndex]="queue" (selectedIndexChange)="setQueue($event)">
+                <md-tab label="All"></md-tab>
+                <md-tab label="Unoffered"></md-tab>
+                <md-tab label="Worklisted"></md-tab>
+                <md-tab label="Offered"></md-tab>
+                <md-tab label="Allocated"></md-tab>
+                <md-tab label="Started"></md-tab>
+                <md-tab label="Suspended"></md-tab>
+            </md-tab-group>
+            
+            <work-item-list [work-items]="workItems"
+                            [searchFilter]="searchQuery"
+                            [selectable]="true"
+                            (selectedItemChange)="showItem($event)">
+            </work-item-list>
+		</div>
+	</div>
+</default-page>

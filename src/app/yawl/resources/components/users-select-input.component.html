@@ -1,0 +1,7 @@
+
+<user-list [users]="users" [selectable]="false" [showRemoveButton]="true" (onRemoveButton)="removeItem($event)"></user-list>
+<div class="resource-select-input">
+	<div class="no-selection" (click)="openSelectionDialog()">
+		<span class="fa fa-plus"></span> Add user
+	</div>
+</div>

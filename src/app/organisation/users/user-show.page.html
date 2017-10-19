@@ -1,0 +1,97 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Show user</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<button (click)="gotoList()" md-raised-button color="accent">
+			<span class="fa fa-arrow-left"></span> User list
+		</button>
+	</div>
+
+	<div class="container">
+		<div class="card" *ngIf="user">
+
+			<div class="resource-list">
+				<div class="resource-list-element with-avatar">
+					<div class="avatar">
+						<span class="circle user"><span class="fa fa-user"></span></span>
+					</div>
+					<div class="modern-list-title">{{user.lastname}}, {{user.firstname}}</div>
+					<div class="modern-list-subtitle">{{user.username}}</div>
+					<div class="modern-list-description">{{user.description}}</div>
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+            <md-tab-group>
+                <md-tab label="Profile">
+                    <div class="row half-container">
+                        <div class="half">
+                            <div class="section">
+                            <label>Lastname</label>
+                            <div class="flow-text">{{user.lastname}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                            <label>Firstname</label>
+                            <div class="flow-text">{{user.firstname}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                            <label>Username</label>
+                            <div class="flow-text">{{user.username}}</div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="section">
+                                <label><span class="fa fa-sticky-note"></span> Description</label>
+                                <div class="flow-text" *ngIf="user.description">{{user.description}}</div>
+                                <div class="flow-text" *ngIf="!user.description">No description</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <label><span class="fa fa-commenting"></span> Notes</label>
+                                <div class="flow-text" *ngIf="user.notes">{{user.notes}}</div>
+                                <div class="flow-text" *ngIf="!user.notes">No notes</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button md-button color="primary" type="button" (click)="intendEdit()">
+                            Edit data <span class="fa fa-pencil"></span>
+                        </button>
+
+                        <button md-button color="primary" type="button" (click)="intendChangePassword()">
+                            Change password <span class="fa fa-key"></span>
+                        </button>
+
+                        <button md-button color="primary" type="button" (click)="intendRemove()">
+                            Delete user <span class="fa fa-trash-o"></span>
+                        </button>
+                    </div>
+                </md-tab>
+
+                <md-tab label="Roles">
+                    <user-roles-panel [user]="user"></user-roles-panel>
+                </md-tab>
+
+                <md-tab label="Capabilities">
+                    <user-capabilities-panel [user]="user"></user-capabilities-panel>
+                </md-tab>
+
+                <md-tab label="Positions">
+                    <user-positions-panel [user]="user"></user-positions-panel>
+                </md-tab>
+
+                <md-tab label="Workitems">
+                    <user-work-items-panel [user]="user"></user-work-items-panel>
+                </md-tab>
+            </md-tab-group>
+		</div>
+	</div>
+</default-page>

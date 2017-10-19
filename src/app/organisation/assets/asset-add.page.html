@@ -1,0 +1,15 @@
+
+<default-page>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header gray">
+				<h2><span class="fa fa-user"></span> Create new asset</h2>
+			</div>
+			<div class="card-content">
+				<asset-form (saved)="save($event)" (canceled)="cancel()"></asset-form>
+			</div>
+		</div>
+	</div>
+
+</default-page>

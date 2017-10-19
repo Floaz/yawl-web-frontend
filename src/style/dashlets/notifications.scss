@@ -1,0 +1,213 @@
+
+.notification-list > ul {
+	margin: 0;
+    padding: 0;
+    list-style: none;
+	max-height: 300px;
+	overflow-y: auto;
+}
+
+.notification-list-empty {
+	box-sizing: border-box;
+	width: 100%;
+    padding: 50px 0px;
+	text-align: center;
+	color: color("grey", "lighten-1");
+	font-size: larger;
+}
+
+.notification-list-item {
+    padding: 0px;
+	border-bottom: 1px solid color("grey", "lighten-2");
+	border-radius: 0px;
+	cursor: pointer;
+}
+
+/*.notification-list > ul > li:nth-of-type(odd) {
+    background-color: #f0f0f0;
+}
+
+.notification-list > ul > li:nth-of-type(even) {
+    background-color: #f9f9f9;
+}*/
+
+.notification-list-item.INFORMATION {
+	border-left: 3px solid #3277BA;
+}
+
+.notification-list-item.WARNING {
+	border-left: 3px solid darkorange;
+}
+
+.notification-list-item.CRITICAL {
+	border-left: 3px solid crimson;
+}
+
+.notification-list-item > a {
+    padding: 14px 20px 14px 10px;
+    display: block;
+	font-size: 16px;
+    position: relative;
+	transition: background 0.2s;
+}
+
+.notification-list-item.selected > a {
+	background-color: rgba(0,0,0,0.06);
+}
+
+.notification-list-item > a:hover {
+    text-decoration: none;
+	background-color: rgba(0,0,0,0.08);
+}
+
+
+.notification-list-item > a.active {
+    background-color: rgba(0,0,100,0.08);
+	color: #222222;
+}
+
+.notification-list-item > a > .notification-icon {
+    width: 32px;
+	margin-right: 10px;
+	float: left;
+}
+
+.notification-list-item > a > .notification-icon > span {
+    font-size: 32px;
+}
+
+.notification-list-item > a > .notification-icon.INFORMATION {
+	color: #3277BA;
+}
+
+.notification-list-item > a > .notification-icon.WARNING {
+	color: darkorange;
+}
+
+.notification-list-item > a > .notification-icon.CRITICAL {
+	color: crimson;
+}
+
+
+.notification-list-item > a > .notification-data {
+	display: inline-block;
+}
+
+.notification-list-item > a .notification-title {
+    font-weight: bold;
+	font-size: 16px;
+	color: color("grey", "darken-2");
+}
+
+.notification-list-item .notification-creationdate {
+	float: right;
+	font-size: 16px;
+	color: color("grey", "darken-2");
+}
+
+.notification-list-item > a .notification-meta {
+	color: color("grey", "base");
+}
+
+.notification-list-item.marked > a:after {
+	position: absolute;
+	top: 18px;
+	right: 15px;
+	font-family: 'FontAwesome';
+	font-size: 13px;
+	-webkit-transition: all;
+	-o-transition: all;
+	transition: all;
+	-webkit-transition-duration: 250ms;
+	transition-duration: 250ms;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	content: "\f067";
+}
+
+.notification-list-item.marked.active > a {
+}
+
+.notification-list-item.marked.active > a:after {
+	content: "\f068";
+}
+
+
+
+.selected-notification {
+    padding: 12px;
+	font-size: 130%;
+}
+
+.selected-notification h4 {
+	font-size: 130%;
+	font-weight: bold;
+}
+
+
+.selected-notification > .notification-icon {
+    width: 32px;
+	margin-right: 10px;
+	float: right;
+}
+
+.selected-notification > .notification-icon > span {
+    font-size: 32px;
+}
+
+.selected-notification > .notification-icon.INFORMATION {
+	color: #3277BA;
+}
+
+.selected-notification > .notification-icon.WARNING {
+	color: darkorange;
+}
+
+.selected-notification > .notification-icon.CRITICAL {
+	color: crimson;
+}
+
+
+.selected-notification > .notification-data {
+	display: inline-block;
+}
+
+.selected-notification .notification-title {
+    font-weight: bold;
+	font-size: 16px;
+	color: color("grey", "darken-2");
+}
+
+.selected-notification .notification-creationdate {
+	color: color("grey", "darken-2");
+}
+
+.selected-notification .notification-meta {
+	color: color("grey", "base");
+}
+
+
+.selected-notification .comments {
+	margin: 0px;
+}
+
+.selected-notification .comments li {
+	border-radius: 4px;
+	margin-bottom: 4px;
+	background-color: color("grey", "lighten-5");
+	padding: 8px;
+}
+
+.selected-notification .comments .comment-creator {
+	color: color("blue", "base");
+}
+
+.selected-notification .comments .comment-date {
+	color: color("grey", "base");
+}
+
+.selected-notification .new-comment-field {
+    height: 100px;
+}
+

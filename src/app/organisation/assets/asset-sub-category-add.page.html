@@ -1,0 +1,36 @@
+
+<default-page>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header gray">
+				<h2><span class="fa fa-user"></span> Create new asset category</h2>
+			</div>
+			<div class="card-content">
+				<form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
+                    <div class="row">
+                        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+                            <input mdInput
+                                    placeholder="Label"
+                                    name="name"
+                                    minlength="3"
+                                    maxlength="50"
+                                    [(ngModel)]="name"
+                                    required>
+                        </md-form-field>
+                    </div> 
+
+					<div class="form-actions noborder">
+						<button md-raised-button color="primary" type="button" (click)="cancel()">
+							<span class="fa fa-arrow-left"></span> Cancel
+						</button>
+						<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+							Save asset sub category<span class="fa fa-send"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+</default-page>

@@ -1,0 +1,306 @@
+
+.resource-select-input {
+	display: block;
+	width: 100%;
+	padding: 0;
+}
+
+.resource-select-input .no-selection {
+	width: 100%;
+	border-radius: 0px;
+	border: 1px dashed #999;
+	padding: 10px;
+	color: #999;
+	font-size: 120%;
+}
+
+.resource-select-input .no-selection:hover {
+	border: 1px solid #999;
+	cursor: pointer;
+}
+
+.resource-select-input .selection {
+	position: relative;
+	border: 1px solid #CCCCCC;
+    padding: 10px 20px 10px 72px;
+	cursor: pointer;
+	min-height: 42px;
+}
+
+.resource-select-input .selection:after {
+	clear: both;
+}
+
+.resource-select-input .selection:hover {
+	background-color: rgba(0, 100, 255, 0.1);
+}
+
+
+
+
+
+
+
+.resource-list {
+	width: 100%;
+}
+
+.resource-list.with-border {
+	border: 1px solid #CCCCCC;
+}
+
+.resource-list .resource-list-element {
+	position: relative;
+	border-bottom: 1px solid #CCCCCC;
+    padding: 10px 20px 10px 72px;
+	min-height: 42px;
+}
+
+.resource-list .resource-list-element.selectable {
+	cursor: pointer;
+}
+
+.resource-list .resource-list-element:last-child {
+	border-bottom: none;
+}
+
+.resource-list .resource-list-element:after {
+	clear: both;
+}
+
+.resource-list .resource-list-element:hover {
+	background-color: rgba(0, 100, 255, 0.1);
+}
+
+.resource-list .resource-list-element.selectable.selected {
+	background-color: rgba(0, 100, 255, 0.05);
+}
+
+
+
+.resource-list-empty {
+	box-sizing: border-box;
+	width: 100%;
+    padding: 50px 0px;
+	text-align: center;
+	color: color("grey", "lighten-1");
+	font-size: larger;
+}
+
+
+.resource-select-dialog {
+	width: 500px;
+}
+
+.resource-select-dialog .resource-list {
+	height: 300px;
+	overflow-y: scroll;
+}
+
+
+.resource-list .sortable {
+	cursor: pointer;
+}
+
+.resource-list .sortable:hover {
+	text-decoration: underline;
+	text-decoration-style: dotted;
+}
+
+
+.resource-list .sortkey {
+	text-decoration: underline;
+}
+
+
+
+
+.with-avatar {
+	padding-left: 72px;
+}
+
+.avatar .circle {
+	position: absolute;
+	left: 15px;
+
+    border-radius: 50%;
+
+	display: inline-block;
+	overflow: hidden;
+
+	width: 42px;
+	height: 42px;
+}
+
+.avatar .circle.user {
+    background-color: #62A7EA;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.specification {
+    background-color: #7C7;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.role {
+    background-color: #C93;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+    font-family: sans-serif;
+    padding-left: 2px;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.org-group {
+    background-color: #AAA;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+    font-family: sans-serif;
+    padding-left: 2px;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.position {
+    background-color: #86C;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+    font-family: sans-serif;
+    padding-left: 2px;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.capability {
+    background-color: #3C3;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+    font-family: sans-serif;
+    padding-left: 2px;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.asset {
+    background-color: #399;
+	color: white;
+
+	font-size: 26px;
+	font-weight: bold;
+    font-family: sans-serif;
+    padding-left: 2px;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.avatar .circle.assetcategory {
+    background-color: #359;
+	color: white;
+
+	font-size: 18px;
+	font-weight: bold;
+    font-family: sans-serif;
+    padding-left: 2px;
+
+	line-height: 42px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+.circle.workitem {
+    border-radius: 50%;
+
+	display: inline-block;
+	overflow: hidden;
+
+	margin-left: 20px;
+
+	width: 32px;
+	height: 32px;
+
+    background-color: #AAAAAA;
+	color: white;
+
+	font-size: 20px;
+	font-weight: bold;
+
+	line-height: 32px;
+
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+
+role-list {
+	display: block;
+}
+
+
+.work-item-action-button {
+	width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+	border: none;
+	border-radius: 50%;
+	background: none;
+	color: #adadad;
+    font-size: 20px;
+	font-weight: normal;
+}
+
+
+.work-item-action-button:hover {
+	color: #606060;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.work-item-action-button:disabled {
+	color: #dddddd;
+}
+
+.work-item-action-button:disabled:hover {
+	background-color: transparent;
+}

@@ -1,0 +1,46 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Manage Assets</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<button (click)="goBack()" md-raised-button color="accent" *ngIf="selectedCategoryId">
+			<span class="fa fa-arrow-left"></span> Back
+		</button>
+		<button md-raised-button color="accent" type="button" (click)="openFormForNewAsset()" *ngIf="selectedCategoryId != null">
+			Create asset
+		</button>
+		<button md-raised-button color="accent" type="button" (click)="openFormForNewSubCategory()" *ngIf="selectedCategoryId != null && selectedSubCategoryId == null">
+			Create sub category
+		</button>
+		<button md-raised-button color="accent" type="button" (click)="openFormForNewCategory()" *ngIf="selectedCategoryId == null">
+			Create category
+		</button>
+		<button (click)="reload()" md-raised-button color="accent">
+			<span class="fa fa-refresh"></span> Aktualisieren
+		</button>
+	</div>
+
+	<div class="row search-box-wrapper">
+        <input #searchBox
+                type="text"
+                class="search-box"
+                [(ngModel)]="searchQuery"
+                placeholder="Search">
+	</div>
+
+	<div class="row">
+		<div class="card">
+			<div class="card-body">
+				<asset-list [items]="displayedItems"
+							[searchFilter]="searchQuery"
+							(selectedItemChange)="gotoDetailsPage($event)"
+							(intendEdit)="gotoEditPage($event)"
+							(intendRemove)="intendRemove($event)"></asset-list>
+			</div>
+		</div>
+	</div>
+</default-page>

@@ -1,0 +1,75 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Show capability</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<button (click)="gotoList()" md-raised-button color="accent">
+			<span class="fa fa-arrow-left"></span> Capability list
+		</button>
+	</div>
+
+	<div class="container">
+		<div class="card" *ngIf="capability">
+
+			<div class="resource-list">
+				<div class="resource-list-element with-avatar">
+					<div class="avatar">
+						<span class="circle capability">C</span>
+					</div>
+					<div class="modern-list-title">{{capability.name}}</div>
+					<div class="modern-list-description">{{capability.description}}</div>
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+            <md-tab-group>
+                <md-tab label="Details">
+                    <div class="row">
+                        <div class="half-container">
+                            <div class="half">
+                                <div class="section">
+                                <label>Label</label>
+                                <div class="flow-text">{{capability.name}}</div>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="section">
+                                    <label><span class="fa fa-sticky-note"></span> Description</label>
+                                    <div class="flow-text" *ngIf="capability.description">{{capability.description}}</div>
+                                    <div class="flow-text" *ngIf="!capability.description">No description</div>
+                                </div>
+                            </div>
+                            <div class="half">
+                                <div class="section">
+                                    <label><span class="fa fa-commenting"></span> Notes</label>
+                                    <div class="flow-text" *ngIf="capability.notes">{{capability.notes}}</div>
+                                    <div class="flow-text" *ngIf="!capability.notes">No notes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button md-button color="primary" type="button" (click)="intendEdit()">
+                            Edit <span class="fa fa-pencil"></span>
+                        </button>
+
+                        <button md-button color="primary" type="button" (click)="intendRemove()">
+                            Delete capability <span class="fa fa-trash-o"></span>
+                        </button>
+                    </div>
+                </md-tab>
+
+                <md-tab label="Users">
+                    <div class="row">
+                        <capability-users-panel [capability]="capability"></capability-users-panel>
+                    </div>
+                </md-tab>
+			</md-tab-group>
+
+		</div>
+	</div>
+</default-page>

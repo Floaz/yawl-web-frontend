@@ -1,0 +1,11 @@
+
+<div class="resource-list">
+	<div class="resource-list-element with-avatar">
+		<div class="avatar" *ngIf="resourceType">
+			<span class="circle {{resourceType}}">{{resourceTypeCycle}}</span>
+		</div>
+		<div class="modern-list-title">{{item[nameAttribute]}}</div>
+		<div class="modern-list-subtitle" *ngIf="subtitleAttribute">{{item[subtitleAttribute]}}</div>
+		<div class="modern-list-description">{{item[descriptionAttribute]}}</div>
+	</div>
+</div>

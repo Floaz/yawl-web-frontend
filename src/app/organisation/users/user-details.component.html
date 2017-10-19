@@ -1,0 +1,72 @@
+
+<ul class="tabs">
+	<li class="tab active" *ngIf="detailsMode == 'edit'"><a href="" (click)="setDetailsMode('edit', $event)">Edit</a></li>
+	<li class="tab active" *ngIf="detailsMode == 'delete'"><a href="" (click)="setDetailsMode('delete', $event)">Delete</a></li>
+	<li class="tab" [class.active]="detailsMode == 'profile'"><a href="" (click)="setDetailsMode('profile', $event)">Profile</a></li>
+	<li class="tab" [class.active]="detailsMode == 'roles'"><a href="" (click)="setDetailsMode('roles', $event)">Roles</a></li>
+	<li class="tab" [class.active]="detailsMode == 'capabilities'"><a href="" (click)="setDetailsMode('capabilities', $event)">Capabilities</a></li>
+	<li class="tab" [class.active]="detailsMode == 'position'"><a href="" (click)="setDetailsMode('position', $event)">Position</a></li>
+	<li class="tab" [class.active]="detailsMode == 'workitems'"><a href="" (click)="setDetailsMode('workitems', $event)">Workitems</a></li>
+</ul>
+
+<div *ngIf="detailsMode == 'profile'" class="card-body with-padding">
+	<div class="row">
+		<div class="half">
+			<div class="section">
+			  <label>Lastname</label>
+			  <div class="flow-text">Thomas</div>
+			</div>
+			<div class="divider"></div>
+			<div class="section">
+			  <label>Firstname</label>
+			  <div class="flow-text">Philipp</div>
+			</div>
+			<div class="divider"></div>
+			<div class="section">
+			  <label>Username</label>
+			  <div class="flow-text">thomas</div>
+			</div>
+		</div>
+		<div class="half">
+			<div class="section">
+			  <label>Description</label>
+			  <div class="flow-text">Dies ist eine Testbeschreibung</div>
+			</div>
+			<div class="divider"></div>
+			<div class="section">
+			  <label>Notes</label>
+			  <div class="flow-text">Dies sind Testnotes...</div>
+			</div>
+		</div>
+	</div>
+	<div class="btn-group">
+		<button md-button color="primary" type="button" (click)="setDetailsMode('edit', $event)">
+			Edit data <span class="fa fa-pencil"></span>
+		</button>
+
+		<button md-button color="primary" type="button" (click)="setDetailsMode('delete', $event)">
+			Delete user <span class="fa fa-trash-o"></span>
+		</button>
+	</div>
+</div>
+
+<div *ngIf="detailsMode == 'edit'" class="card-body with-padding">
+	<user-profile-form></user-profile-form>
+</div>
+
+<div *ngIf="detailsMode == 'delete'" class="card-body with-padding">
+	<p>Do you really want to delete this user?</p>
+	<div class="btn-group">
+		<button md-raised-button color="primary" type="button" (click)="deleteUser()">
+			Permanently delete user <span class="fa fa-check"></span>
+		</button>
+
+		<button md-raised-button color="primary" type="button" (click)="setDetailsMode('profile', $event)">
+			Cancel <span class="fa fa-times"></span>
+		</button>
+	</div>
+</div>
+
+<div *ngIf="detailsMode == 'roles'" class="card-body with-padding">
+	<user-roles-panel></user-roles-panel>
+</div>

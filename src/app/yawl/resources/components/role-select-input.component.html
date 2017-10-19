@@ -1,0 +1,23 @@
+<div class="resource-select-input">
+	<div *ngIf="displayedRole == null" class="no-selection" (click)="openSelectionDialog()">
+		No role selected
+		<span class="fa fa-caret-down"></span>
+	</div>
+	<div *ngIf="displayedRole != null"
+		 class="selection with-avatar"
+		 (click)="openSelectionDialog()">
+		<div class="avatar">
+			<span class="circle role">R</span>
+		</div>
+		<div class="modern-list-title">{{displayedRole.name}}</div>
+		<div class="modern-list-description" *ngIf="displayedRole.description">{{displayedRole.description}}</div>
+		<div class="modern-list-description" *ngIf="!displayedRole.description">-</div>
+		<ul class="modern-list-actions">
+			<li>
+				<button (click)="deselect()" title="Remove selection">
+					<span class="fa fa-times"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>

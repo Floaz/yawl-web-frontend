@@ -1,0 +1,42 @@
+
+<default-page>
+	<div *ngIf="dashboardData">
+		<div class="page-header">
+			<h1>{{dashboardData.title}}</h1>
+			<ul class="page-header-actions">
+				<li>
+					<button (click)="onSettingsButton($event)" (contextmenu)="onSettingsButton($event)">
+						<span class="fa fa-ellipsis-v"></span>
+					</button>
+				</li>
+			</ul>
+		</div>
+
+		<div class="dashboard-container">
+			<fixed-column-layout [dashboard]="dashboardData.id"></fixed-column-layout>
+		</div>
+	</div>
+
+	<div *ngIf="!dashboardData && !isLoading" class="row">
+		<div class="col s12">
+			<div class="card">
+				<div class="card-content">
+					<div class="row center">
+						<h3 class="light header">Welcome</h3>
+						<div class="row">
+							<p class="flow-text">
+								You are logged in to YAWL dashboard, but you have not created any dashboard.<br/>
+								Please, create a new dashboard on the manage page.
+							</p>
+						</div>
+						<div class="row">
+							<button (click)="navigateToDashboardList()" class="btn-large">
+								Manage Dashboards
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</default-page>

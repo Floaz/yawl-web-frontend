@@ -1,0 +1,27 @@
+
+<div class="row">
+	<div *ngFor="let item of displayTasks" >
+		<div class="chip">
+			{{item.specification}}: {{item.task.taskPattern}}
+			<a (click)="removeTask(item)" class="close">
+				<span class="fa fa-remove"></span>
+			</a>
+		</div>
+	</div>
+
+	<div class="col s12 m5 l5">
+		<select class="nice-select" [(ngModel)]="selectedSpecification">
+			<option *ngFor="let item of allSpecifications" [ngValue]="item">{{item.uri}} {{item.version}}</option>
+		</select>
+	</div>
+
+	<div class="col s12 m5 l5">
+		<input type="text" class="validate filter-input" [(ngModel)]="task" placeholder="Task name or Java-regex pattern"/>
+	</div>
+
+	<div class="col s12 m2 l2">
+		<button md-raised-button color="accent" (click)="addTask()" [disabled]="!task || !selectedSpecification">
+			<span class="fa fa-plus"></span>
+		</button>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="row">
+	<capability-list [capabilities]="capabilities" [selectable]="true" [(selectedItem)]="selectedCapability" [showDetailsLink]="true"></capability-list>
+</div>
+
+<div class="row">
+	<button md-raised-button color="primary" type="button" (click)="removeSelected()" [disabled]="!selectedCapability">
+		<span class="fa fa-minus"></span> Remove selected
+	</button>
+	<button md-raised-button color="primary" type="button" (click)="intendAddCapability()">
+		<span class="fa fa-plus"></span> Add capability
+	</button>
+</div>

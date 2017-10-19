@@ -1,0 +1,87 @@
+
+
+
+.nice-list-element {
+	position: relative;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.nice-list-element:last-child {
+	border-bottom: none;
+}
+
+
+.nice-list-title {
+	width: 30%;
+	padding: 20px;
+	display: inline-block;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+
+.nice-list-subtitle {
+	width: 30%;
+	padding: 20px 3px;
+	display: inline-block;
+	font-size: 120%;
+	font-weight: normal;
+	color: #adadad;
+}
+
+
+.nice-list-type {
+	width: 30%;
+	padding: 20px;
+	display: inline-block;
+	font-size: 120%;
+}
+
+
+.nice-list-actions {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    z-index: 2;
+    list-style: none;
+}
+
+.nice-list-actions > li {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.nice-list-actions > li > a,
+.nice-list-actions > li > button {
+	width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+	border: none;
+	border-radius: 50%;
+	background: none;
+	color: #adadad;
+    font-size: 20px;
+	font-weight: normal;
+}
+
+.nice-list-actions > li > a:hover,
+.nice-list-actions > li > button:hover {
+	color: #606060;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.nice-list-actions > li > a:disabled,
+.nice-list-actions > li > button:disabled {
+	color: #dddddd;
+}
+
+.nice-list-actions > li > a:disabled:hover,
+.nice-list-actions > li > button:disabled:hover {
+	background-color: transparent;
+}
+
+
+

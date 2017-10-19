@@ -1,0 +1,20 @@
+
+<div class="form-signin-wrapper">
+	<form role="form" (ngSubmit)="onSubmit()" class="form-signin">
+		<h2 class="form-signin-heading">Log in</h2>
+		<div class="form-signin-subheading">to {{applicationName}}</div>
+
+		<div class="alert alert-info" [hidden]="!(isLoading && loadingType=='session-check')">Check current session...</div>
+		<div class="alert alert-info" [hidden]="!(isLoading && loadingType=='credentials-check')">Check credentials...</div>
+
+		<label class="sr-only"></label>
+		<input name="username" [(ngModel)]="username" type="text" autofocus="autofocus" class="form-control" placeholder="Username" [disabled]="isLoading">
+
+		<label class="sr-only"></label>
+		<input name="password" [(ngModel)]="password" type="password" class="form-control" placeholder="Password" [disabled]="isLoading">
+
+		<button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="isLoading">
+			Log in
+		</button>
+	</form>
+</div>

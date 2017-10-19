@@ -1,0 +1,107 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Show work item</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<button (click)="gotoList()" md-raised-button color="accent">
+			<span class="fa fa-arrow-left"></span> Work Item list
+		</button>
+	</div>
+
+	<div class="container">
+		<div class="card" *ngIf="workItem">
+
+            <md-tab-group>
+                <md-tab label="Details">
+                    <div class="half-container">
+                        <div class="half">
+                            <div class="section">
+                                <label>Work Item Identifier</label>
+                                <div class="flow-text">{{workItem.id}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <label>Task</label>
+                                <div class="flow-text">{{workItem.task.name}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <label>Case</label>
+                                <div class="flow-text">{{workItem.caseId}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <label>Specification</label>
+                                <div class="flow-text">{{workItem.specification.uri}} {{workItem.specification.version}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <label>Status</label>
+                                <div class="flow-text">{{workItem.status}}</div>
+                            </div>
+                            <div class="divider"></div>
+                            <div class="section">
+                                <label>Resource Status</label>
+                                <div class="flow-text">{{workItem.resourceStatus}}</div>
+                            </div>
+                            <div class="divider" *ngIf="workItem.timerExpiry"></div>
+                            <div class="section" *ngIf="workItem.timerExpiry">
+                                <label>Timer Expiry</label>
+                                <div class="flow-text">{{workItem.timerExpiry | date:'medium'}}</div>
+                            </div>
+                            <div class="divider" *ngIf="workItem.timerExpiry"></div>
+                            <div class="section" *ngIf="workItem.timerExpiry">
+                                <label>Timer Expiring Time</label>
+                                <div class="flow-text">{{workItem.timerExpiry /1000 | timedifference | duration}}</div>
+                            </div>
+                        </div>
+                        <div class="half">
+                            <div class="section">
+                                <label><span class="fa fa-commenting"></span> Documentation</label>
+                                <button md-button color="primary" type="button" (click)="intendEditDocumentation()" title="Edit documentation">
+                                    <span class="fa fa-pencil"></span>
+                                </button>
+                                <div class="flow-text" *ngIf="workItem.documentation">{{workItem.documentation}}</div>
+                                <div class="flow-text" *ngIf="!workItem.documentation">No documentation</div>
+                            </div>
+                        </div>
+                    </div>
+                </md-tab>
+                <md-tab label="Assignments">
+                    <div class="row">
+                        <label>Resource Status:</label>
+                        <div class="flow-text">{{workItem.resourceStatus}}</div>
+                    </div>
+    
+                    <div class="row">
+                        <label>Participants:</label>
+                        <work-item-participants-panel [work-item]="workItem"></work-item-participants-panel>
+                    </div>
+    
+                    <div class="row">
+                        <button md-raised-button color="primary" type="button" (click)="intendReoffer()">
+                            <span class="fa fa-users"></span>
+                            <span *ngIf="workItem.resourceStatus != 'Unoffered'">Reoffer</span>
+                            <span *ngIf="workItem.resourceStatus == 'Unoffered'">Offer</span>
+                        </button>
+                        <button md-raised-button color="primary" type="button" (click)="intendReallocate()">
+                            <span class="fa fa-user"></span>
+                            <span *ngIf="workItem.resourceStatus == 'Allocated' || workItem.resourceStatus == 'Started'">Reallocate</span>
+                            <span *ngIf="!(workItem.resourceStatus == 'Allocated' || workItem.resourceStatus == 'Started')">Allocate</span>
+                        </button>
+                        <button md-raised-button color="primary" type="button" (click)="intendRestart()">
+                            <span class="fa fa-play"></span>
+                            <span *ngIf="workItem.resourceStatus == 'Started'">Restart</span>
+                            <span *ngIf="!(workItem.resourceStatus == 'Started')">Start</span>
+                        </button>
+                    </div>
+                </md-tab>
+            </md-tab-group>
+
+		</div>
+	</div>
+</default-page>

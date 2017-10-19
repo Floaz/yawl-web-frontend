@@ -1,0 +1,73 @@
+
+<toolbar class="toolbar-primary">
+	<button class="sidebar-toggle-button btn btn-icon" (click)="sidenav.toggle()">
+			<span class="fa fa-bars"></span>
+	</button>
+	<div class="toolbar-title">YAWL Web Frontend</div>
+	<div class="toolbar-right">
+		<button *ngIf="demoMode" class="btn btn-icon">
+			<span class="fa fa-bell"></span>
+			<span class="label label-primary">8</span>
+		</button>
+		<button class="logout-button" (click)="onLogoutButton()">
+			<span class="fa fa-sign-out"></span> Logout
+		</button>
+	</div>
+</toolbar>
+
+<sidebar-layout>
+	<sidebar #sidenav>
+		<div class="sidebar-header">
+			YAWL Web Admin
+		</div>
+		<ul class="main-menu">
+			<li *ngIf="withDashboardService" [class.toggled]="dashboards.length > 1" [class.has-sub-menu]="dashboards.length > 1">
+				<a routerLink="/dashboard/" routerLinkActive="active"><i class="fa fa-tachometer main-menu-icon"></i> Dashboard</a>
+				<ul class="main-sub-menu">
+					<li *ngFor="let item of dashboards">
+						<a [routerLink]="'/dashboard/'+item.id" routerLinkActive="active"><i class="fa fa-th-list main-menu-icon"></i> {{item.title}}</a>
+					</li>
+				</ul>
+			</li>
+			<li *ngIf="withDashboardService">
+				<a routerLink="/notifications/" routerLinkActive="active"><i class="fa fa-bell main-menu-icon"></i> Notifications</a>
+			</li>
+			<li>
+				<a routerLink="/workitems" routerLinkActive="active"><i class="fa fa-th-list main-menu-icon"></i> Work Items</a>
+			</li>
+			<li>
+				<a routerLink="/cases" routerLinkActive="active"><i class="fa fa-th-list main-menu-icon"></i> Cases</a>
+			</li>
+			<li>
+				<a routerLink="/specifications" routerLinkActive="active"><i class="fa fa-cubes main-menu-icon"></i> Specifications</a>
+			</li>
+			<li class="has-sub-menu toggled">
+				<a><i class="fa fa-users main-menu-icon"></i> Organisation</a>
+				<ul class="main-sub-menu">
+					<li>
+						<a routerLink="/assets" routerLinkActive="active"><i class="fa fa-circle-o main-menu-icon"></i> Assets</a>
+					</li>
+					<li>
+						<a routerLink="/capabilities" routerLinkActive="active"><i class="fa fa-circle-o main-menu-icon"></i> Capabilities</a>
+					</li>
+					<li>
+						<a routerLink="/groups" routerLinkActive="active"><i class="fa fa-circle-o main-menu-icon"></i> Groups</a>
+					</li>
+					<li>
+						<a routerLink="/positions" routerLinkActive="active"><i class="fa fa-circle-o main-menu-icon"></i> Positions</a>
+					</li>
+					<li>
+						<a routerLink="/roles" routerLinkActive="active"><i class="fa fa-circle-o main-menu-icon"></i> Roles</a>
+					</li>
+					<li>
+						<a routerLink="/users" routerLinkActive="active"><i class="fa fa-circle-o main-menu-icon"></i> Users</a>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</sidebar>
+
+	<div class="app-content" [class.with-sidebar]="sidenav.opened">
+		<ng-content></ng-content>
+	</div>
+</sidebar-layout>

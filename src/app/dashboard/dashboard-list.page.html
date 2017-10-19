@@ -1,0 +1,89 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Manage Dashboards</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div *ngIf="!showNewDashboardForm" class="row">
+		<button md-raised-button color="accent" type="button" (click)="openDashboardFormForNew()">
+			Create dashboard
+		</button>
+	</div>
+
+	<div *ngIf="showDashboardForm" class="row">
+		<div class="card dashlet-add-panel">
+			<div class="card-header gray">
+				<h2>
+					<span *ngIf="dashboard.id == null">New dashboard</span>
+					<span *ngIf="dashboard.id != null">Edit dashboard</span>
+				</h2>
+				<ul class="card-header-actions">
+					<li>
+						<button (click)="closeDashboardForm()">
+							<span class="fa fa-times"></span>
+						</button>
+					</li>
+				</ul>
+			</div>
+			<div class="card-content">
+				<form  (ngSubmit)="saveNewDashboard()" #newDashboardForm="ngForm">
+					<div class="row">
+						<label for="newDashboardName">Title of dashboard</label>
+						<input id="newDashboardName"
+							   name="newDashboardName"
+							   placeholder="My Dashlet"
+							   minlength="3"
+							   maxlength="50"
+							   [(ngModel)]="dashboard.title"
+							   required/>
+					</div>
+
+					<div class="form-actions noborder">
+						<button md-raised-button color="accent" type="submit" [disabled]="!newDashboardForm.form.valid">
+							Save <span class="fa fa-send"></span>
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="card">
+			<div class="card-body">
+				<div *ngFor="let item of dashboards" class="dashlet-list-element">
+					<div class="dashlet-list-title">{{item.title}}</div>
+					<ul class="dashlet-list-actions">
+						<li>
+							<button (click)="gotoDashboard(item)">
+								<span class="fa fa-eye"></span>
+							</button>
+						</li>
+						<li>
+							<button (click)="editDashboard(item)">
+								<span class="fa fa-pencil"></span>
+							</button>
+						</li>
+						<li>
+							<button (click)="moveUp(item)" [disabled]="item.orderNo == 1">
+								<span class="fa fa-arrow-up"></span>
+							</button>
+						</li>
+						<li>
+							<button (click)="moveDown(item)" [disabled]="item.orderNo == getMaxOrderNo()">
+								<span class="fa fa-arrow-down"></span>
+							</button>
+						</li>
+						<li>
+							<button (click)="removeDashboard(item)">
+								<span class="fa fa-trash-o"></span>
+							</button>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</default-page>

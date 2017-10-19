@@ -1,0 +1,46 @@
+<form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <input mdInput
+                    placeholder="Label"
+                    name="name"
+                    minlength="3"
+                    maxlength="50"
+                    [(ngModel)]="asset.name"
+                    required>
+        </md-form-field>
+    </div>
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Description (Optional)"
+                    name="description"
+                    rows="4"
+                    [(ngModel)]="asset.description">
+            </textarea>
+        </md-form-field>
+    </div>
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Notes (Optional)"
+                    name="notes"
+                    rows="4"
+                    [(ngModel)]="asset.notes">
+            </textarea>
+        </md-form-field>
+    </div>
+
+	<div class="form-actions noborder">
+		<button md-raised-button color="primary" type="button" (click)="cancel()">
+			<span class="fa fa-arrow-left"></span> Cancel
+		</button>
+		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+			Save asset <span class="fa fa-send"></span>
+		</button>
+	</div>
+
+</form>

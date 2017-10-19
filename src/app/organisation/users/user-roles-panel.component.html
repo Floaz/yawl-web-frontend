@@ -1,0 +1,12 @@
+<div class="row">
+	<role-list [roles]="roles" [(selectedItem)]="selectedRole" [selectable]="true" [showDetailsLink]="true"></role-list>
+</div>
+
+<div class="row">
+	<button md-raised-button color="primary" type="button" (click)="removeSelected()" [disabled]="!selectedRole">
+		<span class="fa fa-minus"></span> Remove selected
+	</button>
+	<button md-raised-button color="primary" type="button" (click)="intendAddRole()">
+		<span class="fa fa-plus"></span> Add role
+	</button>
+</div>

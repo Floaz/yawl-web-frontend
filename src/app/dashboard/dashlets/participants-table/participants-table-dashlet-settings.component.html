@@ -1,0 +1,152 @@
+
+<div class="section">
+	<h4>Columns</h4>
+
+	<div class="row">
+		<p>Visible columns</p>
+
+		<div class="checkbox">
+			<input id="showColumnUsername" type="checkbox" [(ngModel)]="settings.showColumnUsername" />
+			<label for="showColumnUsername">Participant's Username</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnName" type="checkbox" [(ngModel)]="settings.showColumnName" />
+			<label for="showColumnName">Participant's Name</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnNumberOffered" type="checkbox" [(ngModel)]="settings.showColumnNumberOffered" />
+			<label for="showColumnNumberOffered">&#35; Offered Work Items</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnNumberAccepted" type="checkbox" [(ngModel)]="settings.showColumnNumberAccepted" />
+			<label for="showColumnNumberAccepted">&#35; Accepted Work Items</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnNumberStarted" type="checkbox" [(ngModel)]="settings.showColumnNumberStarted" />
+			<label for="showColumnNumberStarted">&#35; Started Work Items</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnNumberAcceptedAndStarted" type="checkbox" [(ngModel)]="settings.showColumnNumberAcceptedAndStarted" />
+			<label for="showColumnNumberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnIdleTimeAccepted" type="checkbox" [(ngModel)]="settings.showColumnIdleTimeAccepted" />
+			<label for="showColumnIdleTimeAccepted">Idle Time Accepted</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnIdleTimeStarted" type="checkbox" [(ngModel)]="settings.showColumnIdleTimeStarted" />
+			<label for="showColumnIdleTimeStarted">Idle Time Started</label>
+		</div>
+
+		<div class="checkbox">
+			<input id="showColumnSumIdleTime" type="checkbox" [(ngModel)]="settings.showColumnSumIdleTime" />
+			<label for="showColumnSumIdleTime">Sum Idle Time</label>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<label>Format of the participant's name</label>
+		<select [(ngModel)]="settings.sortName">
+			<option value="firstname">Firstname Lastname</option>
+			<option value="lastname">Lastname, Firstname</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<h4>Sorting</h4>
+
+	<div class="row">
+		<label>Sort column</label>
+		<select [(ngModel)]="settings.sortColumn">
+			<option value="username">Participant's Username</option>
+			<option value="lastname">Participant's Lastname</option>
+			<option value="firstname">Participant's Firstname</option>
+			<option value="numberOffered">&#35; Offered Work Items</option>
+			<option value="numberAccepted">&#35; Accepted Work Items</option>
+			<option value="numberStarted">&#35; Started Work Items</option>
+			<option value="numberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</option>
+			<option value="idleTimeAccepted">Idle Time Accepted</option>
+			<option value="idleTimeStarted">Idle Time Started</option>
+			<option value="sumIdleTime">Sum Idle Time</option>
+		</select>
+	</div>
+
+	<div class="row">
+		<label>Sort mode</label>
+		<select [(ngModel)]="settings.sortColumnDirection">
+			<option value="ASC">Ascending</option>
+			<option value="DESC">Descending</option>
+		</select>
+	</div>
+</div>
+
+<div class="section">
+	<h4>Selection Participants</h4>
+
+	<div class="row">
+		<div class="checkbox">
+			<input id="customSelection" type="checkbox" [(ngModel)]="settings.customSelection" />
+			<label for="customSelection">Custom selection</label>
+		</div>
+	</div>
+
+	<div [hidden]="!settings.customSelection">
+
+		<div class="row">
+			<label>Selection</label>
+			<participants-selection [(participants)]="settings.customSelectionParticipants"></participants-selection>
+		</div>
+
+	</div>
+
+	<div class="row">
+		<div class="checkbox">
+			<input id="autoSelection" type="checkbox" [(ngModel)]="settings.autoSelection" />
+			<label for="autoSelection">Automatic selection</label>
+		</div>
+	</div>
+
+	<div [hidden]="!settings.autoSelection">
+
+		<div class="row">
+			<label>Number of selected participants</label>
+			<input type="number" [(ngModel)]="settings.autoSelectionNumber" />
+		</div>
+
+		<div class="row">
+			<label>Auto selection mode</label>
+			<select [(ngModel)]="settings.autoSelectionMode">
+				<option value="max">Maximum Value</option>
+				<option value="min">Minimum Value</option>
+				<option value="random">Random</option>
+			</select>
+		</div>
+
+		<div class="row" [hidden]="settings.autoSelectionMode != 'max' && settings.autoSelectionMode != 'min'">
+			<label>Auto selection sort column</label>
+			<select [(ngModel)]="settings.autoSelectionSortColumn">
+				<option value="numberOffered">&#35; Offered Work Items</option>
+				<option value="numberAccepted">&#35; Accepted Work Items</option>
+				<option value="numberStarted">&#35; Started Work Items</option>
+				<option value="numberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</option>
+				<option value="idleTimeAccepted">Idle Time Accepted</option>
+				<option value="idleTimeStarted">Idle Time Started</option>
+				<option value="sumIdleTime">Sum Idle Time</option>
+			</select>
+		</div>
+
+		<div class="row">
+			<label>Exceptions/Blacklist</label>
+			<participants-selection [(participants)]="settings.autoSelectionBlacklist"></participants-selection>
+		</div>
+	</div>
+</div>

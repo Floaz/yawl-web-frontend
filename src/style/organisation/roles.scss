@@ -1,0 +1,76 @@
+
+
+.role-list-element {
+	position: relative;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.role-list-element:last-child {
+	border-bottom: none;
+}
+
+
+.role-list-name {
+	width: 30%;
+	padding: 20px;
+	display: inline-block;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.role-list-description {
+	width: 30%;
+	padding: 20px;
+	display: inline-block;
+	font-size: 120%;
+}
+
+
+.role-list-actions {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    z-index: 2;
+    list-style: none;
+}
+
+.role-list-actions > li {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.role-list-actions > li > a,
+.role-list-actions > li > button {
+	width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+	border: none;
+	border-radius: 50%;
+	background: none;
+	color: #adadad;
+    font-size: 20px;
+	font-weight: normal;
+}
+
+.role-list-actions > li > a:hover,
+.role-list-actions > li > button:hover {
+	color: #606060;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.role-list-actions > li > a:disabled,
+.role-list-actions > li > button:disabled {
+	color: #dddddd;
+}
+
+.role-list-actions > li > a:disabled:hover,
+.role-list-actions > li > button:disabled:hover {
+	background-color: transparent;
+}
+
+
+
+

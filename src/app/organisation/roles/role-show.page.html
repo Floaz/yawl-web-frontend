@@ -1,0 +1,85 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Show role</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<button (click)="gotoList()" md-raised-button color="accent">
+			<span class="fa fa-arrow-left"></span> Role list
+		</button>
+	</div>
+
+	<div class="container">
+		<div class="card" *ngIf="role">
+
+			<div class="resource-list">
+				<div class="resource-list-element with-avatar">
+					<div class="avatar">
+						<span class="circle role">R</span>
+					</div>
+					<div class="modern-list-title">{{role.name}}</div>
+					<div class="modern-list-description">{{role.description}}</div>
+				</div>
+			</div>
+
+			<div class="divider"></div>
+
+            <md-tab-group>
+                <md-tab label="Details">
+                    <div class="row">
+                        <div class="half-container">
+                            <div class="half">
+                                <div class="section">
+                                    <label>Label</label>
+                                    <div class="flow-text">{{role.name}}</div>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="section">
+                                    <label><span class="fa fa-sticky-note"></span> Description</label>
+                                    <div class="flow-text" *ngIf="role.description">{{role.description}}</div>
+                                    <div class="flow-text" *ngIf="!role.description">No description</div>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="section">
+                                    <label>Belongs to</label>
+                                    <show-resource-panel *ngIf="belongsTo"
+                                                        [item]="belongsTo"
+                                                        [resourceType]="'role'"
+                                                        [resourceTypeCycle]="'R'"></show-resource-panel>
+                                    <div class="flow-text" *ngIf="!belongsTo">None</div>
+                                </div>
+                            </div>
+                            <div class="half">
+                                <div class="section">
+                                    <label><span class="fa fa-commenting"></span> Notes</label>
+                                    <div class="flow-text" *ngIf="role.notes">{{role.notes}}</div>
+                                    <div class="flow-text" *ngIf="!role.notes">No notes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button md-button color="primary" type="button" (click)="intendEdit()">
+                            Edit <span class="fa fa-pencil"></span>
+                        </button>
+    
+                        <button md-button color="primary" type="button" (click)="intendRemove()">
+                            Delete role <span class="fa fa-trash-o"></span>
+                        </button>
+                    </div>
+                </md-tab>
+
+                <md-tab label="Users">
+                    <role-users-panel [role]="role"></role-users-panel>
+                </md-tab>
+                
+                <md-tab label="Childs">
+                    <role-childs-panel [role]="role"></role-childs-panel>
+                </md-tab>
+            </md-tab-group>
+		</div>
+	</div>
+</default-page>

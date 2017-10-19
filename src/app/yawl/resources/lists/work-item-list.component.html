@@ -1,0 +1,45 @@
+<div class="resource-list">
+	<table class="yd-full-table">
+		<thead>
+			<tr>
+				<th>&nbsp;</th>
+				<th *ngIf="columnConfig.showIdColumn" (click)="addSortKey('id')" class="sortable yd-cell-left" [class.sortkey]="isSortKey('id')">ID</th>
+				<th *ngIf="columnConfig.showSpecificationColumn" (click)="addSortKey('specification')" class="sortable yd-cell-left" [class.sortkey]="isSortKey('specification')">Specification</th>
+				<th *ngIf="columnConfig.showTaskColumn" (click)="addSortKey('taskName')" class="sortable yd-cell-left" [class.sortkey]="isSortKey('taskName')">Task</th>
+				<th *ngIf="columnConfig.showCaseIdColumn" (click)="addSortKey('caseId')" class="sortable yd-cell-center" [class.sortkey]="isSortKey('caseId')">Case-ID</th>
+				<th *ngIf="columnConfig.showCreatedColumn" (click)="addSortKey('age')" class="sortable yd-cell-left" [class.sortkey]="isSortKey('age')">Created</th>
+				<th *ngIf="columnConfig.showAgeColumn" (click)="addSortKey('age')" class="sortable yd-cell-center" [class.sortkey]="isSortKey('age')">Age</th>
+				<th *ngIf="columnConfig.showStatusColumn" class="yd-cell-center">Status</th>
+				<th *ngIf="columnConfig.showResourceStatusColumn" (click)="addSortKey('resourceStatus')" class="sortable yd-cell-center" [class.sortkey]="isSortKey('resourceStatus')">Resource Status</th>
+				<th *ngIf="showDetailsLink">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let item of sortedItems"
+				 class="resource-list-element"
+				 [class.selectable]="selectable"
+				 [class.selected]="selectedItem && item.id == selectedItem.id"
+				 (click)="onSelect(item, $event)">
+				<td>
+					<span class="circle workitem">W</span>
+				</td>
+				<td *ngIf="columnConfig.showIdColumn" class="yd-cell-left">{{item.id}}</td>
+				<td *ngIf="columnConfig.showSpecificationColumn" class="yd-cell-left">{{item.specification.uri}} {{item.specification.version}}</td>
+				<td *ngIf="columnConfig.showTaskColumn" class="yd-cell-left">{{item.task.name}}</td>
+				<td *ngIf="columnConfig.showCaseIdColumn" class="yd-cell-center">{{item.caseId}}</td>
+				<td *ngIf="columnConfig.showCreatedColumn" class="yd-cell-left">{{item.enablementTime | date:'medium'}}</td>
+				<td *ngIf="columnConfig.showAgeColumn" class="yd-cell-center">{{item.enablementTime/1000 | timedifference | duration}}</td>
+				<td *ngIf="columnConfig.showStatusColumn" class="yd-cell-center">{{item.status}}</td>
+				<td *ngIf="columnConfig.showResourceStatusColumn" class="yd-cell-center">{{item.resourceStatus}}</td>
+				<td *ngIf="showDetailsLink">
+					<button (click)="gotoDetailsPage(item)" class="work-item-action-button">
+						<span class="fa fa-eye"></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="resource-list-empty" *ngIf="sortedItems.length == 0">
+		<span class="fa fa-circle"></span> {{noItemsMessage}}
+	</div>
+</div>

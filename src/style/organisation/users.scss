@@ -1,0 +1,85 @@
+
+
+.user-list-element {
+	position: relative;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.user-list-element:last-child {
+	border-bottom: none;
+}
+
+
+.user-list-fullname {
+	width: 30%;
+	padding: 20px;
+	display: inline-block;
+	font-size: 120%;
+	font-weight: bold;
+}
+
+.user-list-username {
+	width: 30%;
+	padding: 20px;
+	display: inline-block;
+	font-size: 120%;
+}
+
+
+.user-list-actions {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    z-index: 2;
+    list-style: none;
+}
+
+.user-list-actions > li {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.user-list-actions > li > a,
+.user-list-actions > li > button {
+	width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+	border: none;
+	border-radius: 50%;
+	background: none;
+	color: #adadad;
+    font-size: 20px;
+	font-weight: normal;
+}
+
+.user-list-actions > li > a:hover,
+.user-list-actions > li > button:hover {
+	color: #606060;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.user-list-actions > li > a:disabled,
+.user-list-actions > li > button:disabled {
+	color: #dddddd;
+}
+
+.user-list-actions > li > a:disabled:hover,
+.user-list-actions > li > button:disabled:hover {
+	background-color: transparent;
+}
+
+.user-list-empty {
+	box-sizing: border-box;
+	width: 100%;
+    padding: 50px 0px;
+	text-align: center;
+	color: color("grey", "lighten-1");
+	font-size: larger;
+}
+
+
+
+

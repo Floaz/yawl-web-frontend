@@ -1,0 +1,17 @@
+<div class="resource-list with-border">
+	<div *ngFor="let item of sortedItems"
+		 class="role-list-element">
+		<div class="role-list-name">{{item.id}}</div>
+		<div class="role-list-description">{{item.specification.uri}} {{item.specification.version}}</div>
+		<ul class="role-list-actions">
+			<li>
+				<button (click)="onCancel.emit(item)" title="Cancel case">
+					<span class="fa fa-times"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="resource-list-empty" *ngIf="sortedItems.length == 0">
+		<span class="fa fa-circle"></span> {{noItemsMessage}}
+	</div>
+</div>

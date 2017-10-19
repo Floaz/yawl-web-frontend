@@ -1,0 +1,15 @@
+
+<default-page>
+
+	<div class="container">
+		<div class="card">
+			<div class="card-header gray">
+				<h2><span class="fa fa-user"></span> Create new user</h2>
+			</div>
+			<div class="card-content">
+				<user-add-form (added)="onUserAdded($event)" (canceled)="onCancel()"></user-add-form>
+			</div>
+		</div>
+	</div>
+
+</default-page>

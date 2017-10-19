@@ -1,0 +1,14 @@
+
+<div class="layout-selection-list">
+	<div *ngFor="let item of items"
+		 class="layout-selection-item"
+		 [class.active]="isActive(item)"
+		 (click)="selectBox(item)">
+		<div class="row">
+			<div *ngFor="let column of item.columns" [class]="'col s'+column">
+				<div class="box"></div>
+			</div>
+		</div>
+	</div>
+</div>
+

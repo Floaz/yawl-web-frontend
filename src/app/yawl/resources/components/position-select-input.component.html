@@ -1,0 +1,23 @@
+<div class="resource-select-input">
+	<div *ngIf="displayedPosition == null" class="no-selection" (click)="openSelectionDialog()">
+		No position selected
+		<span class="fa fa-caret-down"></span>
+	</div>
+	<div *ngIf="displayedPosition != null"
+		 class="selection with-avatar"
+		 (click)="openSelectionDialog()">
+		<div class="avatar">
+			<span class="circle position">R</span>
+		</div>
+		<div class="modern-list-title">{{displayedPosition.name}}</div>
+		<div class="modern-list-description" *ngIf="displayedPosition.description">{{displayedPosition.description}}</div>
+		<div class="modern-list-description" *ngIf="!displayedPosition.description">-</div>
+		<ul class="modern-list-actions">
+			<li>
+				<button (click)="deselect()" title="Remove selection">
+					<span class="fa fa-times"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+</div>

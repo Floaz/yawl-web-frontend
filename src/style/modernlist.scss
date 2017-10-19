@@ -1,0 +1,93 @@
+
+
+.modern-list-element {
+	position: relative;
+	border-bottom: 1px solid #CCCCCC;
+    padding: 10px 20px;
+}
+
+.modern-list-element:last-child {
+	border-bottom: none;
+}
+
+
+.modern-list-element.selectable {
+	cursor: pointer;
+}
+
+.modern-list-element.selected {
+	background-color: rgba(0, 100, 255, 0.1);
+}
+
+
+.modern-list-title {
+	display: block;
+	font-size: larger;
+}
+
+.modern-list-subtitle {
+	display: block;
+	font-weight: bold;
+	color: $primary-color;
+}
+
+.modern-list-description {
+	display: block;
+	color: #888888;
+}
+
+
+.modern-list-actions {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 10px;
+    top: 15px;
+    z-index: 2;
+    list-style: none;
+}
+
+.modern-list-actions > li {
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.modern-list-actions > li > a,
+.modern-list-actions > li > button {
+	width: 30px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+	border: none;
+	border-radius: 50%;
+	background: none;
+	color: #adadad;
+    font-size: 20px;
+	font-weight: normal;
+}
+
+.modern-list-actions > li > a:hover,
+.modern-list-actions > li > button:hover {
+	color: #606060;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+.modern-list-actions > li > a:disabled,
+.modern-list-actions > li > button:disabled {
+	color: #dddddd;
+}
+
+.modern-list-actions > li > a:disabled:hover,
+.modern-list-actions > li > button:disabled:hover {
+	background-color: transparent;
+}
+
+.modern-list-empty {
+	box-sizing: border-box;
+	width: 100%;
+    padding: 50px 0px;
+	text-align: center;
+	color: color("grey", "lighten-1");
+	font-size: larger;
+}
+

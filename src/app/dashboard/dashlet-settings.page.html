@@ -1,0 +1,21 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Dashlet Settings</h1>
+	</div>
+	<div class="container">
+
+		<div class="card">
+			<div class="card-content">
+				<div #child></div>
+				<button (click)="cancel()" md-raised-button color="accent">
+					<span class="fa fa-arrow-left"></span> Cancel
+				</button>
+				<button md-raised-button color="accent" (click)="saveSettings()">
+					Save <span class="fa fa-send"></span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+</default-page>

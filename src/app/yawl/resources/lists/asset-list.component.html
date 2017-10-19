@@ -1,0 +1,29 @@
+<div class="resource-list with-border">
+	<div *ngFor="let item of sortedItems"
+		 class="resource-list-element with-avatar"
+		 [class.selectable]="item.type != 'asset'"
+		 [class.selected]="selectedItem && item.id == selectedItem.id"
+		 (click)="onSelect(item, $event)">
+		<div class="avatar">
+			<span class="circle asset" *ngIf="item.type == 'asset'">A</span>
+			<span class="circle assetcategory" *ngIf="item.type != 'asset'">Cat</span>
+		</div>
+		<div class="modern-list-title">{{item.name}}</div>
+		<div class="modern-list-description">{{item.description}}</div>
+		<ul class="modern-list-actions">
+			<li *ngIf="item.type == 'asset' || item.type == 'category'">
+				<button (click)="edit(item, $event)" title="Edit">
+					<span class="fa fa-pencil"></span>
+				</button>
+			</li>
+			<li>
+				<button (click)="remove(item, $event)" title="Remove">
+					<span class="fa fa-trash-o"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="resource-list-empty" *ngIf="sortedItems.length == 0">
+		<span class="fa fa-circle"></span> {{noItemsMessage}}
+	</div>
+</div>

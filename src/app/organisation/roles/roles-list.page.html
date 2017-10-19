@@ -1,0 +1,30 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Manage Roles</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<button md-raised-button color="accent" type="button" (click)="openFormForNew()">
+			Create new role
+		</button>
+	</div>
+
+	<div class="row search-box-wrapper">
+        <input #searchBox
+                type="text"
+                class="search-box"
+                [(ngModel)]="searchQuery"
+                placeholder="Search">
+	</div>
+
+	<div class="row">
+		<div class="card">
+			<div class="card-body">
+				<role-list [roles]="roles" [searchFilter]="searchQuery" [selectable]="true" (selectedItemChange)="gotoDetailsPage($event)"></role-list>
+			</div>
+		</div>
+	</div>
+</default-page>

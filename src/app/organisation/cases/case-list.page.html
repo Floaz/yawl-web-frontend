@@ -1,0 +1,40 @@
+
+<default-page>
+	<div class="page-header">
+		<h1>Cases</h1>
+		<ul class="page-header-actions">
+		</ul>
+	</div>
+
+	<div class="row">
+		<md-card>
+            <label>Filter by specification:</label>
+            <md-select [ngModel]="selectedSpecification" (ngModelChange)="onFilterChange($event)" name="selectedSpecification">
+                <md-option value="">No specification</md-option>
+                <md-option *ngFor="let item of specifications" [value]="item">
+                    {{item.uri}} {{item.version}}
+                </md-option>
+            </md-select>
+		</md-card>
+	</div>
+
+	<div class="row">
+		<md-card class="without-padding">
+            <div *ngFor="let item of filteredCases" class="role-list-element">
+                <div class="role-list-name">{{item.id}}</div>
+                <div class="role-list-description">{{item.specification.uri}} {{item.specification.version}}</div>
+                <ul class="role-list-actions">
+                    <li>
+                        <button (click)="intendCancel(item)" title="Cancel case">
+                            <span class="fa fa-times"></span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="notification-list-empty" *ngIf="filteredCases.length == 0">
+                There are no cases!
+            </div>
+        </md-card>
+	</div>
+</default-page>

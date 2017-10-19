@@ -1,0 +1,23 @@
+<div class="resource-list with-border">
+	<div *ngFor="let item of sortedItems"
+		 class="resource-list-element with-avatar"
+		 [class.selectable]="selectable"
+		 [class.selected]="selectedItem && item.id == selectedItem.id"
+		 (click)="onSelect(item, $event)">
+		<div class="avatar">
+			<span class="circle role">R</span>
+		</div>
+		<div class="modern-list-title">{{item.name}}</div>
+		<div class="modern-list-description">{{item.description}}</div>
+		<ul class="modern-list-actions">
+			<li *ngIf="showDetailsLink">
+				<button (click)="gotoDetailsPage(item)">
+					<span class="fa fa-eye"></span>
+				</button>
+			</li>
+		</ul>
+	</div>
+	<div class="resource-list-empty" *ngIf="sortedItems.length == 0">
+		<span class="fa fa-circle"></span> {{noRolesMessage}}
+	</div>
+</div>

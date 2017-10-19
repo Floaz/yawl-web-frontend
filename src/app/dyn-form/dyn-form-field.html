@@ -1,0 +1,35 @@
+
+<div class="row" [formGroup]="form">
+	<label [attr.for]="question.key">{{question.label}}</label>
+
+	<ng-container [ngSwitch]="question.controlType">
+
+		<input *ngSwitchCase="'textbox'"
+				[id]="question.key"
+				[formControlName]="question.key"
+				[type]="question.type"/>
+
+		<textarea *ngSwitchCase="'textarea'"
+				[id]="question.key"
+				[formControlName]="question.key"></textarea>
+
+		<input *ngSwitchCase="'number'"
+				[id]="question.key" 
+				[formControlName]="question.key"
+				type="number"/>
+
+		<select *ngSwitchCase="'dropdown'" [id]="question.key" [formControlName]="question.key">
+			<option *ngFor="let opt of question.options" [value]="opt.key">{{opt.value}}</option>
+		</select>
+
+		<time-input *ngSwitchCase="'time'"></time-input>
+
+		<participants-selection *ngSwitchCase="'participants-selection'"></participants-selection>
+
+		<specifications-selection *ngSwitchCase="'specifications-selection'"></specifications-selection>
+
+		<tasks-selection *ngSwitchCase="'tasks-selection'"></tasks-selection>
+	</ng-container> 
+
+	<div class="errorMessage" *ngIf="!isValid">{{question.label}} is required</div>
+</div>

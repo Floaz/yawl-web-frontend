@@ -1,0 +1,31 @@
+<div class="modal-background" (click)="closeModal()"></div>
+<div class="dialog-modal resource-select-dialog card z-depth-3">
+	<div class="card-header gray">
+		<h2>{{title}}</h2>
+	</div>
+	<div class="card-content">
+		<div class="row">
+            <md-input-container class="filter-input">
+                <input mdInput #searchBox
+                        type="text"
+                        [(ngModel)]="searchQuery"
+                        (keyup)="filter()"
+                        placeholder="Search">
+            </md-input-container>
+		</div>
+		<div class="row">
+			<capability-list [capabilities]="selectableCapabilities" (selectedItemChange)="select($event)"></capability-list>
+		</div>
+	</div>
+
+	<div class="card-footer">
+		<div class="btn-group">
+			<button md-raised-button color="primary" (click)="closeModal()">
+				<span>Cancel</span>
+			</button>
+			<button md-raised-button color="primary" (click)="select(null)" *ngIf="showNoSelectionButton">
+				<span>No capability</span>
+			</button>
+		</div>
+	</div>
+</div>

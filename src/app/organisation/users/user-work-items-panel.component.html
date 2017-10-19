@@ -1,0 +1,12 @@
+
+<md-tab-group [selectedIndex]="queue" (selectedIndexChange)="setQueue($event)">
+    <md-tab label="Offered"></md-tab>
+    <md-tab label="Allocated"></md-tab>
+    <md-tab label="Started"></md-tab>
+    <md-tab label="Suspended"></md-tab>
+</md-tab-group>
+
+<div class="row">
+    <work-item-list [work-items]="workItems" [showDetailsLink]="true"></work-item-list>
+</div>
+    

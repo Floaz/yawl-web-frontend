@@ -1,0 +1,56 @@
+<form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <input mdInput
+                    placeholder="Label"
+                    name="name"
+                    minlength="3"
+                    maxlength="50"
+                    [(ngModel)]="position.name"
+                    required>
+        </md-form-field>
+    </div>
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Description (Optional)"
+                    name="description"
+                    rows="4"
+                    [(ngModel)]="position.description">
+            </textarea>
+        </md-form-field>
+    </div>
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Notes (Optional)"
+                    name="notes"
+                    rows="4"
+                    [(ngModel)]="position.notes">
+            </textarea>
+        </md-form-field>
+    </div>
+        
+	<div class="row">
+		<label class="yd-form-label">Reports to (Optional)</label>
+		<position-select [position]="position.reportsTo" (positionChanged)="position.reportsTo = $event" [ignore]="ignoredPositions"></position-select>
+	</div>
+
+	<div class="row">
+		<label class="yd-form-label">Belongs to organisational group (Optional)</label>
+		<org-group-select [org-group]="position.belongsToOrgGroup" (orgGroupChanged)="position.belongsToOrgGroup = $event"></org-group-select>
+	</div>
+
+	<div class="form-actions noborder">
+		<button md-raised-button color="primary" type="button" (click)="cancel()">
+			<span class="fa fa-arrow-left"></span> Cancel
+		</button>
+		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+			Save position <span class="fa fa-send"></span>
+		</button>
+	</div>
+
+</form>

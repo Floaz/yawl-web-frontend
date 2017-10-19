@@ -1,0 +1,115 @@
+
+
+<div *ngIf="mode == 'edit' || mode == 'layoutchange'" class="row">
+	<div class="col s12">
+		<button (click)="mode = 'show'" md-raised-button color="accent">
+			<span class="fa fa-check"></span> Close edit mode
+		</button>
+	</div>
+</div>
+
+<div *ngIf="mode == 'new'" class="row">
+	<div class="col s12">
+		<button (click)="mode = 'edit'" md-raised-button color="accent">
+			<span class="fa fa-arrow-left"></span> Cancel
+		</button>
+	</div>
+</div>
+
+<div *ngIf="mode == 'layoutchange'" class="row">
+	<div class="col s12">
+		<div class="card">
+			<div class="card-header gray">
+				<h2>Change columns</h2>
+			</div>
+			<div class="card-content">
+				<layout-selection (onChange)="onLayoutChange($event)"></layout-selection>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div *ngIf="mode == 'new'" class="row">
+	<div class="col s12">
+		<dashlet-add-panel [dashboard]="dashboardId" (added)="onDashletAdded($event)"></dashlet-add-panel>
+	</div>
+</div>
+
+<div *ngIf="mode == 'edit'" class="row">
+	<div class="col s12">
+		<div>Now you can drag the dashlets to other places.</div>
+	</div>
+</div>
+
+<div *ngIf="mode == 'show' || mode == 'edit'" class="row" [class.editable]="mode == 'edit'">
+
+	<div *ngFor="let column of columns; let columnIndex=index" class="col s12 m12 l{{column.size}}">
+
+		<div *ngIf="mode == 'edit' && !dragging"
+			 class="dashlet-add-zone"
+			 (click)="startAddMode(columnIndex, null)">
+			<div [hidden]="dragging"><span class="fa fa-plus"></span></div>
+		</div>
+
+		<div *ngIf="dragging"
+			 class="dropzone"
+			 droppable
+			 (dropped)="moveDashletToHead($event, columnIndex)">
+			Place here
+		</div>
+
+		<div *ngFor="let item of column.dashlets" [class.wiggle]="mode == 'edit'">
+			<div [class.wiggleelement]="mode == 'edit'"
+				 class="card"
+				 [draggable]="item"
+				 (dragstart)="startDashletDragging()"
+				 (dragend)="endDashletDragging()"
+				 #theCard>
+				<div class="card-header gray">
+					<h2 *ngIf="mode != 'edit'">{{item.title}}&nbsp;</h2>
+					<div *ngIf="mode == 'edit'">
+						<input [ngModel]="item.title" type="text" (ngModelChange)="renameDashlet(item, $event)"/>
+					</div>
+					<ul class="card-header-actions">
+						<li *ngIf="mode != 'edit'">
+							<button (click)="dashlet.reload()" [disabled]="dashlet.isLoading()">
+								<span class="fa fa-refresh" [class.spinning]="dashlet.isLoading()"></span>
+							</button>
+						</li>
+						<li *ngIf="mode == 'edit'">
+							<button (click)="gotoDashletSettings(item)">
+								<span class="fa fa-cogs"></span>
+							</button>
+						</li>
+						<li *ngIf="mode == 'edit'">
+							<button (click)="removeDashlet(item)">
+								<span class="fa fa-trash-o"></span>
+							</button>
+						</li>
+					</ul>
+				</div>
+				<div class="card-body">
+					<dashlet-panel #dashlet [dashlet-id]="item.id" [dashlet-type]="item.type">
+					</dashlet-panel>
+				</div>
+			</div>
+
+			<div *ngIf="mode == 'edit' && !dragging"
+				 class="dashlet-add-zone"
+				 (click)="startAddMode(columnIndex, item.id)">
+				<div [hidden]="dragging"><span class="fa fa-plus"></span></div>
+			</div>
+
+			<div *ngIf="dragging"
+				 class="dropzone"
+				 droppable
+				 (dropped)="moveDashletAfter($event, item)">
+				Place here
+			</div>
+		</div>
+	</div>
+	<div class="col s6">
+
+	</div>
+</div>
+

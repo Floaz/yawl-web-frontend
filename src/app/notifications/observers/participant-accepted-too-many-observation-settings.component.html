@@ -1,0 +1,55 @@
+
+<div class="section">
+	<h4>Filter</h4>
+
+	<div class="row">
+		<label>Filter mode</label>
+		<select [(ngModel)]="settings.filterMode">
+			<option value="blacklist">All except selections</option>
+			<option value="whitelist">Only selections</option>
+		</select>
+	</div>
+
+	<div class="row">
+		<label>Filter selection</label>
+		<participants-selection [(participants)]="settings.filterParticipants">
+		</participants-selection>
+	</div>
+</div>
+
+
+<div class="section">
+	<h4>Notification Settings</h4>
+
+	<div class="row">
+		<label>Threshold (Number of work items)</label>
+		<input type="number" [(ngModel)]="settings.threshold" min="0" max="999"/>
+	</div>
+
+	<div class="row">
+		<label>Notification priority</label>
+		<select [(ngModel)]="settings.priority">
+			<option value="INFO">Information</option>
+			<option value="WARN">Warning</option>
+			<option value="CRITICAL">Critical</option>
+		</select>
+	</div>
+
+	<div class="row">
+		<label>Notification title</label>
+		<select [(ngModel)]="settings.notificationTitle">
+			<option value="DEFAULT">Default</option>
+			<option value="OBSERVATION_TITLE">Title of observation</option>
+			<option value="SPECIFIED">Specified</option>
+		</select>
+	</div>
+
+	<div class="row" *ngIf="settings.notificationTitle == 'SPECIFIED'">
+		<label for="observationTitle">Specified notification title</label>
+		<input id="observationTitle"
+				type="text"
+				maxlength="60"
+				[(ngModel)]="settings.notificationSpecifiedTitle"/>
+	</div>
+
+</div>

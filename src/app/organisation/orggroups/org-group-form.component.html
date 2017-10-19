@@ -1,0 +1,63 @@
+<form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <input mdInput
+                    placeholder="Label"
+                    name="name"
+                    minlength="3"
+                    maxlength="50"
+                    [(ngModel)]="orgGroup.name"
+                    required>
+        </md-form-field>
+    </div>
+
+	<div class="row">
+        <md-select class="yd-input-full-width" placeholder="Type" [(ngModel)]="orgGroup.type" name="type" required>
+            <md-option value="GROUP">Group</md-option>
+            <md-option value="TEAM">Team</md-option>
+            <md-option value="UNIT">Unit</md-option>
+            <md-option value="BRANCH">Branch</md-option>
+            <md-option value="DIVISION">Division</md-option>
+            <md-option value="CLUSTER">Cluster</md-option>
+            <md-option value="DEPARTMENT">Department</md-option>
+        </md-select>
+    </div>
+    
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Description (Optional)"
+                    name="description"
+                    rows="4"
+                    [(ngModel)]="orgGroup.description">
+            </textarea>
+        </md-form-field>
+    </div>
+
+    <div class="row">
+        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea mdInput
+                    placeholder="Notes (Optional)"
+                    name="notes"
+                    rows="4"
+                    [(ngModel)]="orgGroup.notes">
+            </textarea>
+        </md-form-field>
+    </div>
+
+	<div class="row">
+		<label class="yd-form-label">Belongs to (Optional)</label>
+		<org-group-select [org-group]="orgGroup.belongsTo" (orgGroupChanged)="orgGroup.belongsTo = $event" [ignore]="ignoredOrgGroups"></org-group-select>
+	</div>
+
+	<div class="form-actions noborder">
+		<button md-raised-button color="primary" type="button" (click)="cancel()">
+			<span class="fa fa-arrow-left"></span> Cancel
+		</button>
+		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+			Save group <span class="fa fa-send"></span>
+		</button>
+	</div>
+
+</form>
