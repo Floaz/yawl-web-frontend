@@ -85,7 +85,7 @@ export function createObserverRegistry() {
 	providers: [
 		NotificationsService,
 		ObservationService,
-		{ provide: ObserverRegistry, useValue: createObserverRegistry },
+		{ provide: ObserverRegistry, useFactory: createObserverRegistry },
 	],
 })
 export class NotificationsModule { }

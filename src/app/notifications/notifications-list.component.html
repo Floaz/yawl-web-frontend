@@ -1,6 +1,6 @@
-<ul>
+<ul class="notification-list">
 	<li *ngFor="let item of displayedNotifications" [class]="'notification-list-item ' + item.priority" [class.selected]="item.id == selectedItem">
-		<a (click)="onClick($event, item)" (contextmenu)="onContextMenu($event, item)">
+		<a (click)="onClick($event, item)" (contextmenu)="onContextMenu($event)">
 			<div class="notification-icon INFORMATION" [hidden]="item.priority != 'INFORMATION'">
 				<span class="fa fa-info-circle"></span>
 			</div>
@@ -19,7 +19,14 @@
 			<div class="notification-creationdate">
 				since {{item.creationDate | timedifference | duration}}
 			</div>
-		</a>
+        </a>
+        <span [mdMenuTriggerFor]="contextMenu"></span>
+        <md-menu #contextMenu="mdMenu">
+            <button md-menu-item (click)="gotoWorkItemDetails(item.data.workItemId)" *ngIf="item.data.workItemId">Goto work item details</button>
+            <button md-menu-item (click)="gotoUserDetails(item.data.userId)" *ngIf="item.data.userId">Goto user details</button>
+            <button md-menu-item (click)="muteNotification(item)" *ngIf="item.status == 0">Mute</button>
+            <button md-menu-item (click)="unmuteNotification(item)" *ngIf="item.status == 1">Unmute</button>
+        </md-menu>
 	</li>
 </ul>
 

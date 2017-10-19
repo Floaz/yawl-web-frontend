@@ -8,7 +8,7 @@ import { SessionService } from './session.service';
 @Component({
     selector: 'login-form',
     templateUrl: 'login-form.page.html',
-    styleUrls: ['login-form.page.css']
+    styleUrls: ['login-form.page.scss']
 })
 export class LoginFormPage {
 

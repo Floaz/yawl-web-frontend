@@ -5,48 +5,46 @@
 	</div>
 
 	<div class="row">
-		<div class="col s12">
-			<div class="card">
-				<div class="card-body with-padding">
+        <div class="card">
+            <div class="card-body with-padding">
 
-					<div class="section">
-						<h4>General</h4>
+                <div class="section">
+                    <h4>General</h4>
 
-						<div class="row">
-							<label>Observation type</label>
-							<div class="static-form-value">{{observationData.type | observername}}</div>
-						</div>
+                    <div class="row">
+                        <label>Observation type</label>
+                        <div class="static-form-value">{{observationData.type | observername}}</div>
+                    </div>
 
-						<div class="row">
-							<label for="observationTitle">Observation title (optional)</label>
-							<input id="observationTitle"
-									type="text"
-									[(ngModel)]="observationData.title"/>
-						</div>
+                    <div class="row">
+                        <label for="observationTitle">Observation title (optional)</label>
+                        <input id="observationTitle"
+                                type="text"
+                                [(ngModel)]="observationData.title"/>
+                    </div>
 
-						<div class="row">
-							<label for="observationStatus">Status</label>
-							<select id="observationStatus"
-									class="nice-select"
-									[(ngModel)]="observationData.status">
-								<option value="1">Enabled</option>
-								<option value="0">Disabled</option>
-							</select>
-						</div>
+                    <div class="row">
+                        <label for="observationStatus">Status</label>
+                        <select id="observationStatus"
+                                class="nice-select"
+                                [(ngModel)]="observationData.status">
+                            <option value="1">Enabled</option>
+                            <option value="0">Disabled</option>
+                        </select>
+                    </div>
 
-					</div>
+                </div>
 
-					<div #settingsChild></div>
-					<div class="form-actions noborder">
-						<button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
-							Cancel
-						</button>
-						<button md-raised-button color="accent" [disabled]="isLoading" (click)="saveSettings()">
-							Save <span class="fa fa-send"></span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div #settingsChild></div>
+                <div class="form-actions noborder">
+                    <button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
+                        Cancel
+                    </button>
+                    <button md-raised-button color="accent" [disabled]="isLoading" (click)="saveSettings()">
+                        Save <span class="fa fa-send"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
 	</div>
 </default-page>

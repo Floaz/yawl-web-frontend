@@ -58,7 +58,7 @@
 			Place here
 		</div>
 
-		<div *ngFor="let item of column.dashlets" [class.wiggle]="mode == 'edit'">
+		<div *ngFor="let item of column.dashlets" [class.wiggle]="mode == 'edit'" style="position: relative;">
             <div [class.wiggleelement]="mode == 'edit'"
                 class="card"
                 [draggable]="item"

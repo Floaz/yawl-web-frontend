@@ -1,44 +1,40 @@
 
 <div class="section">
-	<h4>Sorting</h4>
+	<h2>Sorting</h2>
 
 	<div class="row">
-		<label>Sort column</label>
-		<select [(ngModel)]="settings.sortColumn">
-			<option value="specificationName">Specification</option>
-			<option value="numberCases">&#35; Running Cases</option>
-		</select>
+        <md-select class="yd-input-full-width" placeholder="Sort column" [(ngModel)]="settings.sortColumn" name="sortColumn" required>
+			<md-option value="specificationName">Specification</md-option>
+			<md-option value="numberCases">&#35; Running Cases</md-option>
+        </md-select>
 	</div>
 
 	<div class="row">
-		<label>Sort mode</label>
-		<select [(ngModel)]="settings.sortColumnDirection">
-			<option value="ASC">Ascending</option>
-			<option value="DESC">Descending</option>
-		</select>
+        <md-select class="yd-input-full-width" placeholder="Sort mode" [(ngModel)]="settings.sortColumnDirection" name="sortColumnDirection" required>
+			<md-option value="ASC">Ascending</md-option>
+			<md-option value="DESC">Descending</md-option>
+        </md-select>
 	</div>
-
 </div>
 
 
 <div class="section">
-	<h4>Selection Specifications</h4>
+	<h2>Selection Specifications</h2>
 
 	<div class="row">
-		<label>Filter mode</label>
-		<select [(ngModel)]="settings.selectionMode">
-			<option value="blacklist">All except selection</option>
-			<option value="whitelist">Only selection</option>
-		</select>
+        <md-select class="yd-input-full-width" placeholder="Filter mode" [(ngModel)]="settings.selectionMode" name="selectionMode" required>
+            <md-option value="blacklist">All except selection</md-option>
+            <md-option value="whitelist">Only selection</md-option>
+        </md-select>
 	</div>
 
 	<div class="row">
 		<label>Filter selection</label>
-			<specifications-selection *ngIf="settings.selectionMode == 'blacklist'" [(specifications)]="settings.blacklistedSpecifications">
-			</specifications-selection>
+        <specifications-selection *ngIf="settings.selectionMode == 'blacklist'" [(specifications)]="settings.blacklistedSpecifications">
+        </specifications-selection>
 
-			<specifications-selection *ngIf="settings.selectionMode == 'whitelist'" [(specifications)]="settings.whitelistedSpecifications">
-			</specifications-selection>
+        <specifications-selection *ngIf="settings.selectionMode == 'whitelist'" [(specifications)]="settings.whitelistedSpecifications">
+        </specifications-selection>
 	</div>
 </div>
 

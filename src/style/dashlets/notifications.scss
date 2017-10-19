@@ -1,5 +1,5 @@
 
-.notification-list > ul {
+ul.notification-list {
 	margin: 0;
     padding: 0;
     list-style: none;
@@ -12,13 +12,13 @@
 	width: 100%;
     padding: 50px 0px;
 	text-align: center;
-	color: color("grey", "lighten-1");
+	color: #AAAAAA;
 	font-size: larger;
 }
 
 .notification-list-item {
     padding: 0px;
-	border-bottom: 1px solid color("grey", "lighten-2");
+	border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 	border-radius: 0px;
 	cursor: pointer;
 }
@@ -189,25 +189,29 @@
 
 
 .selected-notification .comments {
-	margin: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .selected-notification .comments li {
 	border-radius: 4px;
 	margin-bottom: 4px;
 	background-color: color("grey", "lighten-5");
-	padding: 8px;
+    padding: 8px;
+    list-style-type: none;
 }
 
 .selected-notification .comments .comment-creator {
-	color: color("blue", "base");
+	color: $primary-color;
 }
 
 .selected-notification .comments .comment-date {
-	color: color("grey", "base");
+	color: #AAAAAA;
 }
 
 .selected-notification .new-comment-field {
     height: 100px;
+    width: 100%;
+    box-sizing: border-box;
 }
 

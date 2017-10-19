@@ -1,5 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { MdMenuTrigger } from '@angular/material';
 
 import { PopupMenuService } from '../util/popup-menu.service';
 
@@ -19,7 +21,10 @@ export class NotificationsListComponent {
 	mode : string = 'active';
 
 	@Input("selectedItem")
-	selectedItem : string = null;
+    selectedItem : string = null;
+    
+    @ViewChild(MdMenuTrigger)
+    contextMenu: MdMenuTrigger;
 
 	notifications : any = [];
 	displayedNotifications : any = [];
@@ -96,50 +101,8 @@ export class NotificationsListComponent {
 	}
 
 
-	public onContextMenu($event: MouseEvent, item: any): void {
-		let menuItems = [
-//				{
-//					html: () => `Comment`,
-//					click: () => this.addComment(item)
-//				},
-//				{
-//					html: () => `Delay`,
-//					click: () => this.delayNotification(item)
-//				}
-		];
-
-		if(item.data.workItemId) {
-			menuItems.push({
-				html: () => `Goto work item details`,
-				click: () => this.gotoWorkItemDetails(item.data.workItemId)
-			});
-		}
-
-		if(item.data.userId) {
-			menuItems.push({
-				html: () => `Goto user details`,
-				click: () => this.gotoUserDetails(item.data.userId)
-			});
-		}
-		
-		if(item.status == 0) {
-			menuItems.push({
-				html: () => `Mute`,
-				click: () => this.muteNotification(item)
-			});
-		}
-		else if(item.status == 1) {
-			menuItems.push({
-				html: () => `Unmute`,
-				click: () => this.unmuteNotification(item)
-			});
-		}
-
-		this.popupMenuService.show.next({
-			'menuItems': menuItems,
-			'event': $event,
-			'item': item
-		});
+	public onContextMenu($event: MouseEvent): void {
+		this.contextMenu.openMenu();
 		$event.preventDefault();
 	}
 

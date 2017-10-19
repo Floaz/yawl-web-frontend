@@ -998,6 +998,11 @@ running-cases-table-dashlet table th {
 }
 
 
+md-checkbox {
+    display: block;
+    margin-bottom: 10px;
+}
+
 md-card.without-padding {
     padding: 0;
 }
@@ -1022,7 +1027,7 @@ md-card.without-padding {
 }
 
 .half-container .half {
-    width: 44%;
+    width: 48%;
 }
 
 .card {
@@ -1106,6 +1111,16 @@ md-card.without-padding {
 
 .yd-cell-center {
     text-align: center;
+}
+
+.yd-select-and-add {
+    display: flex;
+}
+
+.yd-select-and-add button {
+    margin-left: 26px;
+    max-width: 100px;
+    align-self: center;
 }
 
 .col.l2 {

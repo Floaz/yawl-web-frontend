@@ -3,6 +3,8 @@ import { CommonModule }		from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
+import { MaterialSharedModule }			from '../layout/material-shared.module';
+
 import { LoggedInGuard }		from './logged-in.guard';
 import { SessionService }		from './session.service';
 import { OAuthService }			from '../oauth/oauth.service';
@@ -21,7 +23,8 @@ import { sessionRoutesConfig } from './session.routes';
 	imports: [
 		CommonModule,
 		RouterModule.forChild(sessionRoutesConfig),
-		FormsModule
+        FormsModule,
+        MaterialSharedModule
 	],
 	providers: [
 		LoggedInGuard,

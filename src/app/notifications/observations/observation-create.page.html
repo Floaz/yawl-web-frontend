@@ -12,39 +12,37 @@
 	</div>
 
 	<div class="row">
-		<div class="col s12">
-			<div class="card">
-				<div class="card-body with-padding">
-					<div class="row">
-						<label for="newDashletTypeSelection">Observation type</label>
-						<select id="observerSelection"
-								name="observerSelection"
-								class="nice-select"
-								[(ngModel)]="selectedType"
-								[disabled]="mode != 'typeSelection'"
-								required>
-							<option *ngFor="let observer of observers" [ngValue]="observer">{{observer.displayName}}</option>
-						</select>
-					</div>
+        <div class="card">
+            <div class="card-body with-padding">
+                <div class="row">
+                    <md-select class="yd-input-full-width"
+                                placeholder="Observation type"
+                                [(ngModel)]="selectedType"
+                                [disabled]="mode != 'typeSelection'"
+                                name="observerSelection" required>
+                                <md-option *ngFor="let observer of observers" [value]="observer">{{observer.displayName}}</md-option>
+                    </md-select>
+                </div>
 
-					<div class="row">
-						<label for="observationTitle">Observation title (Optional)</label>
-						<input id="observationTitle"
-								type="text"
-								[(ngModel)]="title"/>
-					</div>
+                <div class="row yd-form">
+                    <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+                        <input mdInput
+                                placeholder="Observation title (Optional)"
+                                name="title"
+                                [(ngModel)]="title">
+                    </md-form-field>
+                </div>
 
-					<div class="form-actions noborder" [hidden]="mode != 'typeSelection'">
-						<button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
-							Cancel
-						</button>
-						<button md-raised-button color="accent" [disabled]="!selectedType" (click)="onSelectionComplete()">
-							Continue <span class="fa fa-send"></span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</div>
+                <div class="form-actions noborder" [hidden]="mode != 'typeSelection'">
+                    <button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
+                        Cancel
+                    </button>
+                    <button md-raised-button color="accent" [disabled]="!selectedType" (click)="onSelectionComplete()">
+                        Continue <span class="fa fa-send"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
 	</div>
 
 	<div class="row" [hidden]="mode != 'settings'">

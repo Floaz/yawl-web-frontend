@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 
-import { MdButtonModule, MdButtonToggleModule, MdCardModule, MdCheckboxModule, MdDatepickerModule,
+import { MdButtonModule, MdButtonToggleModule, MdCardModule, MdCheckboxModule, MdChipsModule, MdDatepickerModule,
          MdIconModule, MdInputModule, MdListModule, MdMenuModule, MdPaginatorModule, MdRadioModule, MdSelectModule,
          MdSidenavModule, MdSnackBarModule, MdTableModule, MdTabsModule, MdToolbarModule, MdTooltipModule } from '@angular/material';
 
@@ -15,6 +15,7 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentChipsModule, Covale
         MdButtonToggleModule,
         MdCardModule,
         MdCheckboxModule,
+        MdChipsModule,
         MdDatepickerModule,
         MdIconModule,
         MdInputModule,
@@ -39,6 +40,7 @@ import { CovalentCommonModule, CovalentLayoutModule, CovalentChipsModule, Covale
         MdButtonToggleModule,
         MdCardModule,
         MdCheckboxModule,
+        MdChipsModule,
         MdDatepickerModule,
         MdIconModule,
         MdInputModule,

@@ -3,16 +3,15 @@
 	<h4>Display</h4>
 
 	<div class="row">
-		<label>Height of dashlet</label>
-		<select [(ngModel)]="settings.dashletHeight">
-			<option value="128">Very small (128 pixels)</option>
-			<option value="256">Smaller (256 pixels)</option>
-			<option value="384">Small (384 pixels)</option>
-			<option value="512">Normal (512 pixels)</option>
-			<option value="1024">Tall (1024 pixels)</option>
-			<option value="2048">Taller (2048 pixels)</option>
-			<option value="4096">Very tall (4096 pixels)</option>
-		</select>
+        <md-select class="yd-input-full-width" placeholder="Height of dashlet" [(ngModel)]="settings.dashletHeight" name="dashletHeight" required>
+            <md-option value="128">Very small (128 pixels)</md-option>
+            <md-option value="256">Smaller (256 pixels)</md-option>
+            <md-option value="384">Small (384 pixels)</md-option>
+            <md-option value="512">Normal (512 pixels)</md-option>
+            <md-option value="1024">Tall (1024 pixels)</md-option>
+            <md-option value="2048">Taller (2048 pixels)</md-option>
+            <md-option value="4096">Very tall (4096 pixels)</md-option>
+        </md-select>
 	</div>
 
 </div>

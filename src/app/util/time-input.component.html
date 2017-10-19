@@ -1,20 +1,20 @@
-<div>
-	<div class="col s6 m6 l3">
+<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+	<div>
 		Days:
 		<input type="number" min="0" max="999" [(ngModel)]="days" (ngModelChange)="onInputDays($event)"/>
 	</div>
 
-	<div class="col s6 m6 l3">
+	<div>
 		Hours:
 		<input type="number" min="0" max="23" [(ngModel)]="hours" (ngModelChange)="onInputHours($event)"/>
 	</div>
 
-	<div class="col s6 m6 l3">
+	<div>
 		Mins:
 		<input type="number" min="0" max="59" [(ngModel)]="mins" (ngModelChange)="onInputMins($event)"/>
 	</div>
 
-	<div class="col s6 m6 l3">
+	<div>
 		Secs:
 		<input type="number" min="0" max="59" [(ngModel)]="secs" (ngModelChange)="onInputSecs($event)"/>
 	</div>

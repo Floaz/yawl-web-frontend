@@ -18,7 +18,7 @@ export class DefaultPageComponent implements OnInit {
 
     private subscription = null;
     
-    withDashboardService = true;
+    withDashboardService = false;
 
 
 	constructor(
