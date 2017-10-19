@@ -29,7 +29,7 @@ export class NotificationsService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/notification";
+		let url = "http://localhost:8081/api/notification";
 
 		return this.http.get(url, {headers})
 			.map((res: Response) => res.json())
@@ -41,7 +41,7 @@ export class NotificationsService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/notification/"+id;
+		let url = "http://localhost:8081/api/notification/"+id;
 		
 		return this.http.get(url, {headers})
 			.map((res: Response) => res.json())
@@ -53,7 +53,7 @@ export class NotificationsService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/notification/"+id;
+		let url = "http://localhost:8081/api/notification/"+id;
 
 		let data = {
 			'status': newMuteState ? 1 : 0
@@ -72,7 +72,7 @@ export class NotificationsService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/notification/"+id;
+		let url = "http://localhost:8081/api/notification/"+id;
 
 		let data = {
 			'delayUntil': delayUntil
@@ -91,7 +91,7 @@ export class NotificationsService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/notification/"+id+"/comment";
+		let url = "http://localhost:8081/api/notification/"+id+"/comment";
 
 		let data = {
 			comment
@@ -110,7 +110,7 @@ export class NotificationsService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/notification/"+id+"/comment/"+commentId;
+		let url = "http://localhost:8081/api/notification/"+id+"/comment/"+commentId;
 
 		let observable = this.http.delete(url, {headers})
 							.catch((error) => this.handleError(error)).share();

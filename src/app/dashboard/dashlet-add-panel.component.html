@@ -4,30 +4,26 @@
 		<h2>New dashlet instance</h2>
 	</div>
 	<div class="card-content">
-		<form  (ngSubmit)="saveNewDashlet()" #newDashletForm="ngForm">
-			<div class="row">
-				<label for="newDashletName">Name of new dashlet instance</label>
-				<input id="newDashletName"
-					   name="newDashletName"
-					   class="nice-input-field"
-					   placeholder="My Dashlet"
-					   minlength="3"
-					   maxlength="50"
-					   [(ngModel)]="newDashlet.title"
-					   required/>
-			</div>
-
-			<div class="row">
-				<label for="newDashletTypeSelection">Dashlet type</label>
-				<select id="newDashletTypeSelection"
-						name="newDashletTypeSelection"
-						class="nice-select"
-						[(ngModel)]="newDashlet.type"
-						required>
-					<option *ngFor="let dashletType of dashletTypes" [ngValue]="dashletType.symbolicName">{{dashletType.displayName}}</option>
-				</select>
-			</div>
-
+		<form  (ngSubmit)="saveNewDashlet()" #newDashletForm="ngForm" class="yd-form">
+        
+            <div class="row">
+                <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+                    <input mdInput
+                            placeholder="Name of new dashlet instance"
+                            name="newDashletName"
+                            minlength="3"
+                            maxlength="50"
+                            [(ngModel)]="newDashlet.title"
+                            required>
+                </md-form-field>
+            </div>
+                
+	        <div class="row">
+                <md-select class="yd-input-full-width" placeholder="Dashlet type" [(ngModel)]="newDashlet.type" name="newDashletTypeSelection" required>
+                    <md-option *ngFor="let dashletType of dashletTypes" [value]="dashletType.symbolicName">{{dashletType.displayName}}</md-option>
+                </md-select>
+            </div>
+        
 			<div class="form-actions noborder">
 				<button md-raised-button color="primary" type="submit" [disabled]="!newDashletForm.form.valid">
 					Save <span class="fa fa-send"></span>

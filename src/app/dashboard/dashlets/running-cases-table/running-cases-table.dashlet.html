@@ -3,16 +3,16 @@
 <table class="table-hover">
 	<thead>
 		<tr>
-			<th>Specification</th>
-			<th>Version</th>
-			<th>&#35; Running Cases</th>
+			<th class="sortable yd-cell-left">Specification</th>
+			<th class="sortable yd-cell-center">Version</th>
+			<th class="sortable yd-cell-center">&#35; Running Cases</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr *ngFor="let item of data">
-			<td>{{item.specificationName}}</td>
-			<td>{{item.specificationVersion}}</td>
-			<td>{{item.numberCases}}</td>
+			<td class="sortable yd-cell-left">{{item.specificationName}}</td>
+			<td class="sortable yd-cell-center">{{item.specificationVersion}}</td>
+			<td class="sortable yd-cell-center">{{item.numberCases}}</td>
 		</tr>
 	</tbody>
 </table>

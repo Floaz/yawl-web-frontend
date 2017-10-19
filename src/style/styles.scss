@@ -662,12 +662,11 @@ login-form {
 
 .dashboard-container {
 	width: 100%;
-	display: grid;
-	margin-left: (-1 * $gutter-width / 2);
-	margin-right: (-1 * $gutter-width / 2);
-
 }
 
+.dashboard-container .row {
+    display: flex;
+}
 
 .dashboard-container .editable .card {
 	cursor: move;
@@ -862,7 +861,8 @@ running-cases-table-dashlet table th {
 
 .dashboard-container .dashlet-add-zone,
 .dashboard-container .dropzone {
-	width: 100%;
+    width: 100%;
+    box-sizing: border-box;
 	border-radius: 0px;
 	border: 2px dashed #999;
 	padding: 10px;
@@ -1045,7 +1045,7 @@ md-card.without-padding {
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.mat-tab-body-content {
+.yd-tabs-with-padding .mat-tab-body-content {
     padding: 26px;
     box-sizing: border-box;
 }
@@ -1106,4 +1106,48 @@ md-card.without-padding {
 
 .yd-cell-center {
     text-align: center;
+}
+
+.col.l2 {
+    width: unquote((100 / (12 / 2)) + "%");
+}
+
+.col.l3 {
+    width: unquote((100 / (12 / 3)) + "%");
+}
+
+.col.l4 {
+    width: unquote((100 / (12 / 4)) + "%");
+}
+
+.col.l5 {
+    width: unquote((100 / (12 / 5)) + "%");
+}
+
+.col.l6 {
+    width: unquote((100 / (12 / 6)) + "%");
+}
+
+.col.l7 {
+    width: unquote((100 / (12 / 7)) + "%");
+}
+
+.col.l8 {
+    width: unquote((100 / (12 / 8)) + "%");
+}
+
+.col.l9 {
+    width: unquote((100 / (12 / 9)) + "%");
+}
+
+.col.l10 {
+    width: unquote((100 / (12 / 10)) + "%");
+}
+
+.col.l11 {
+    width: unquote((100 / (12 / 11)) + "%");
+}
+
+.col.l12 {
+    width: unquote((100 / (12 / 12)) + "%");
 }

@@ -138,9 +138,10 @@ export class NotificationsPage {
 
 
 
-	setMode(newMode, event) {
-		this.mode = newMode;
-		event.preventDefault();
+	setMode(newMode) {
+        if(newMode == 0) this.mode = "active";
+        else if(newMode == 1) this.mode = "delayed";
+        else if(newMode == 2) this.mode = "muted";
 	}
 
 

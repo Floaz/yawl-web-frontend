@@ -28,18 +28,19 @@
 				</ul>
 			</div>
 			<div class="card-content">
-				<form  (ngSubmit)="saveNewDashboard()" #newDashboardForm="ngForm">
-					<div class="row">
-						<label for="newDashboardName">Title of dashboard</label>
-						<input id="newDashboardName"
-							   name="newDashboardName"
-							   placeholder="My Dashlet"
-							   minlength="3"
-							   maxlength="50"
-							   [(ngModel)]="dashboard.title"
-							   required/>
-					</div>
-
+				<form  (ngSubmit)="saveNewDashboard()" #newDashboardForm="ngForm" class="yd-form">
+                    <div class="row">
+                        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
+                            <input mdInput
+                                    placeholder="Title"
+                                    name="newDashboardName"
+                                    minlength="3"
+                                    maxlength="50"
+                                    [(ngModel)]="dashboard.title"
+                                    required>
+                        </md-form-field>
+                    </div>
+                            
 					<div class="form-actions noborder">
 						<button md-raised-button color="accent" type="submit" [disabled]="!newDashboardForm.form.valid">
 							Save <span class="fa fa-send"></span>

@@ -4,8 +4,8 @@
 		 class="layout-selection-item"
 		 [class.active]="isActive(item)"
 		 (click)="selectBox(item)">
-		<div class="row">
-			<div *ngFor="let column of item.columns" [class]="'col s'+column">
+		<div class="row" style="display: flex;">
+			<div *ngFor="let column of item.columns" [class]="'col l'+column">
 				<div class="box"></div>
 			</div>
 		</div>

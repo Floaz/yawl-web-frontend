@@ -23,7 +23,7 @@ export class ObservationService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/observation";
+		let url = "http://localhost:8081/api/observation";
 
 		return this.http.get(url, {headers})
 			.map((res: Response) => res.json())
@@ -35,7 +35,7 @@ export class ObservationService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/observation/"+id;
+		let url = "http://localhost:8081/api/observation/"+id;
 
 		return this.http.get(url, {headers})
 			.map((res: Response) => res.json())
@@ -47,7 +47,7 @@ export class ObservationService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/observation/";
+		let url = "http://localhost:8081/api/observation/";
 
 		let data = {
 			'title': title,
@@ -67,7 +67,7 @@ export class ObservationService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/observation/"+observation.id;
+		let url = "http://localhost:8081/api/observation/"+observation.id;
 
 		let data = {
 			'title': observation.title,
@@ -87,7 +87,7 @@ export class ObservationService {
 		let headers = new Headers();
 		headers.append("Authorization", this.oauthService.getAuthorizationHeader());
 
-		let url = "api/observation/"+id;
+		let url = "http://localhost:8081/api/observation/"+id;
 
 		let observable = this.http.delete(url, {headers})
 							.catch((error) => this.handleError(error))

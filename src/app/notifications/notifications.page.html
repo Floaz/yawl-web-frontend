@@ -4,75 +4,82 @@
 		<h1>Notifications</h1>
 		<ul class="page-header-actions">
 			<li>
-				<button (click)="onSettingsButton($event)" (contextmenu)="onSettingsButton($event)">
-					<span class="fa fa-ellipsis-v"></span>
-				</button>
+                <button [mdMenuTriggerFor]="moreMenu">
+                    <span class="fa fa-ellipsis-v"></span>
+                </button>
+                <md-menu #moreMenu="mdMenu">
+                    <button md-menu-item (click)="reload()">Refresh Notifications</button>
+                    <button md-menu-item (click)="navigateToObservationsList()">Manage Observations</button>
+                </md-menu>
 			</li>
 		</ul>
 	</div>
 
 	<div class="row">
-		<div class="col s6">
-			<div class="card">
-				<ul class="tabs">
-					<li class="tab col s3" [class.active]="mode == 'active'"><a href="" (click)="setMode('active', $event)">Active</a></li>
-					<li class="tab col s3" [class.active]="mode == 'delayed'"><a href="" (click)="setMode('delayed', $event)">Delayed</a></li>
-					<li class="tab col s3" [class.active]="mode == 'muted'"><a href="" (click)="setMode('muted', $event)">Muted</a></li>
-				</ul>
-				<notifications-list #list [mode]="mode" [selectedItem]="selectedNotificationId"></notifications-list>
-			</div>
-		</div>
-		<div class="col s6">
-			<div class="card selected-notification" *ngIf="selectedNotification">
+        <div class="half-container">
+            <div class="half">
+                <div class="card">
+                    <md-tab-group selectedIndex="0" (selectedIndexChange)="setMode($event)">
+                        <md-tab label="Active"></md-tab>
+                        <md-tab label="Delayed"></md-tab>
+                        <md-tab label="Muted"></md-tab>
+                    </md-tab-group>
+                    
+                    <notifications-list #list [mode]="mode" [selectedItem]="selectedNotificationId"></notifications-list>
+                </div>
+            </div>
+            <div class="half">
+                <div class="card selected-notification" *ngIf="selectedNotification">
 
-				<h4>Selected notification</h4>
+                    <h4>Selected notification</h4>
 
-				<div class="notification-icon INFORMATION" [hidden]="selectedNotification.priority != 'INFORMATION'">
-					<span class="fa fa-info-circle"></span>
-				</div>
-				<div class="notification-icon WARNING" [hidden]="selectedNotification.priority != 'WARNING'">
-					<span class="fa fa-question-circle"></span>
-				</div>
-				<div class="notification-icon CRITICAL" [hidden]="selectedNotification.priority != 'CRITICAL'">
-					<span class="fa fa-exclamation-triangle"></span>
-				</div>
-				<div class="notification-data">
-					<div class="notification-title">{{selectedNotification.title}}</div>
-					<div class="notification-creationdate">since {{selectedNotification.creationDate | timedifference | duration}}</div>
-					<div class="notification-meta" *ngFor="let data of selectedNotification.displayData">
-						{{data.key}}: {{data.value}}
-					</div>
-				</div>
+                    <div class="notification-icon INFORMATION" [hidden]="selectedNotification.priority != 'INFORMATION'">
+                        <span class="fa fa-info-circle"></span>
+                    </div>
+                    <div class="notification-icon WARNING" [hidden]="selectedNotification.priority != 'WARNING'">
+                        <span class="fa fa-question-circle"></span>
+                    </div>
+                    <div class="notification-icon CRITICAL" [hidden]="selectedNotification.priority != 'CRITICAL'">
+                        <span class="fa fa-exclamation-triangle"></span>
+                    </div>
+                    <div class="notification-data">
+                        <div class="notification-title">{{selectedNotification.title}}</div>
+                        <div class="notification-creationdate">since {{selectedNotification.creationDate | timedifference | duration}}</div>
+                        <div class="notification-meta" *ngFor="let data of selectedNotification.displayData">
+                            {{data.key}}: {{data.value}}
+                        </div>
+                    </div>
 
-				<h4>Comments</h4>
-				<ul class="comments">
-					<li *ngFor="let comment of selectedNotification.comments">
-						<div class="comment-creator">{{comment.creator}}</div>
-						<div class="comment-text">{{comment.comment}}</div>
-						<div class="comment-date">{{selectedNotification.creationDate*1000 | date:"medium"}}</div>
-					</li>
-				</ul>
-				<textarea [(ngModel)]="newComment" class="new-comment-field"></textarea>
-				<button md-raised-button color="accent" (click)="submitComment()">
-					Submit <span class="fa fa-send"></span>
-				</button>
+                    <h4>Comments</h4>
+                    <ul class="comments">
+                        <li *ngFor="let comment of selectedNotification.comments">
+                            <div class="comment-creator">{{comment.creator}}</div>
+                            <div class="comment-text">{{comment.comment}}</div>
+                            <div class="comment-date">{{selectedNotification.creationDate*1000 | date:"medium"}}</div>
+                        </li>
+                    </ul>
+                    <textarea [(ngModel)]="newComment" class="new-comment-field"></textarea>
+                    <button md-raised-button color="accent" (click)="submitComment()">
+                        Submit <span class="fa fa-send"></span>
+                    </button>
 
-				<h4>Delay</h4>
+                    <h4>Delay</h4>
 
-				<div *ngIf="selectedNotification.delayDate">
-					<div>Delayed until: {{selectedNotification.delayDate*1000 | date:"medium"}}</div>
-					<button md-raised-button color="accent" (click)="resetDelay()">
-						Reset delay <span class="fa fa-send"></span>
-					</button>
-				</div>
-				<div *ngIf="!selectedNotification.delayDate">
-					<time-input [(time)]="newDelay"></time-input>
-					<button md-raised-button color="accent" (click)="setDelay()">
-						Set delay <span class="fa fa-send"></span>
-					</button>
-				</div>
+                    <div *ngIf="selectedNotification.delayDate">
+                        <div>Delayed until: {{selectedNotification.delayDate*1000 | date:"medium"}}</div>
+                        <button md-raised-button color="accent" (click)="resetDelay()">
+                            Reset delay <span class="fa fa-send"></span>
+                        </button>
+                    </div>
+                    <div *ngIf="!selectedNotification.delayDate">
+                        <time-input [(time)]="newDelay"></time-input>
+                        <button md-raised-button color="accent" (click)="setDelay()">
+                            Set delay <span class="fa fa-send"></span>
+                        </button>
+                    </div>
 
-			</div>
-		</div>
+                </div>
+            </div>
+        </div>
 	</div>
 </default-page>

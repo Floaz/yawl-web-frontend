@@ -62,33 +62,6 @@ export class DashboardPage {
     }
 
 
-	public onSettingsButton($event: MouseEvent, item: any): void {
-		this.popupMenuService.show.next({
-			menuItems: [
-				{
-					html: () => 'Refresh Dashboard',
-					click: (item) => this.fixedColumnLayoutComponent.reload()
-				},
-				{
-					html: () => 'Manage Dashlets',
-					click: (item) => this.fixedColumnLayoutComponent.startEditMode()
-				},
-				{
-					html: () => 'Change columns',
-					click: (item) => this.fixedColumnLayoutComponent.startLayoutChangeMode()
-				},
-				{
-					html: () => 'Manage Dashboards',
-					click: (item) => this.navigateToDashboardList()
-				}
-			],
-			event: $event,
-			item: item,
-		});
-		$event.preventDefault();
-	}
-
-
 	navigateToSettings() {
 		if(!this.dashboardData) {
 			return;
