@@ -37,10 +37,10 @@
 
                 <div #settingsChild></div>
                 <div class="form-actions noborder">
-                    <button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
+                    <button mat-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
                         Cancel
                     </button>
-                    <button md-raised-button color="accent" [disabled]="isLoading" (click)="saveSettings()">
+                    <button mat-raised-button color="accent" [disabled]="isLoading" (click)="saveSettings()">
                         Save <span class="fa fa-send"></span>
                     </button>
                 </div>

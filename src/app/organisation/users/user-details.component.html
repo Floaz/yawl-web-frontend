@@ -40,11 +40,11 @@
 		</div>
 	</div>
 	<div class="btn-group">
-		<button md-button color="primary" type="button" (click)="setDetailsMode('edit', $event)">
+		<button mat-button color="primary" type="button" (click)="setDetailsMode('edit', $event)">
 			Edit data <span class="fa fa-pencil"></span>
 		</button>
 
-		<button md-button color="primary" type="button" (click)="setDetailsMode('delete', $event)">
+		<button mat-button color="primary" type="button" (click)="setDetailsMode('delete', $event)">
 			Delete user <span class="fa fa-trash-o"></span>
 		</button>
 	</div>
@@ -57,11 +57,11 @@
 <div *ngIf="detailsMode == 'delete'" class="card-body with-padding">
 	<p>Do you really want to delete this user?</p>
 	<div class="btn-group">
-		<button md-raised-button color="primary" type="button" (click)="deleteUser()">
+		<button mat-raised-button color="primary" type="button" (click)="deleteUser()">
 			Permanently delete user <span class="fa fa-check"></span>
 		</button>
 
-		<button md-raised-button color="primary" type="button" (click)="setDetailsMode('profile', $event)">
+		<button mat-raised-button color="primary" type="button" (click)="setDetailsMode('profile', $event)">
 			Cancel <span class="fa fa-times"></span>
 		</button>
 	</div>

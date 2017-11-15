@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-		<button (click)="gotoList()" md-raised-button color="accent">
+		<button (click)="gotoList()" mat-raised-button color="accent">
 			<span class="fa fa-arrow-left"></span> Work Item list
 		</button>
 	</div>
@@ -15,8 +15,8 @@
 	<div class="container">
 		<div class="card" *ngIf="workItem">
 
-            <md-tab-group class="yd-tabs-with-padding">
-                <md-tab label="Details">
+            <mat-tab-group class="yd-tabs-with-padding">
+                <mat-tab label="Details">
                     <div class="half-container">
                         <div class="half">
                             <div class="section">
@@ -62,7 +62,7 @@
                         <div class="half">
                             <div class="section">
                                 <label><span class="fa fa-commenting"></span> Documentation</label>
-                                <button md-button color="primary" type="button" (click)="intendEditDocumentation()" title="Edit documentation">
+                                <button mat-button color="primary" type="button" (click)="intendEditDocumentation()" title="Edit documentation">
                                     <span class="fa fa-pencil"></span>
                                 </button>
                                 <div class="flow-text" *ngIf="workItem.documentation">{{workItem.documentation}}</div>
@@ -70,8 +70,8 @@
                             </div>
                         </div>
                     </div>
-                </md-tab>
-                <md-tab label="Assignments">
+                </mat-tab>
+                <mat-tab label="Assignments">
                     <div class="row">
                         <label>Resource Status:</label>
                         <div class="flow-text">{{workItem.resourceStatus}}</div>
@@ -83,24 +83,24 @@
                     </div>
     
                     <div class="row">
-                        <button md-raised-button color="primary" type="button" (click)="intendReoffer()">
+                        <button mat-raised-button color="primary" type="button" (click)="intendReoffer()">
                             <span class="fa fa-users"></span>
                             <span *ngIf="workItem.resourceStatus != 'Unoffered'">Reoffer</span>
                             <span *ngIf="workItem.resourceStatus == 'Unoffered'">Offer</span>
                         </button>
-                        <button md-raised-button color="primary" type="button" (click)="intendReallocate()">
+                        <button mat-raised-button color="primary" type="button" (click)="intendReallocate()">
                             <span class="fa fa-user"></span>
                             <span *ngIf="workItem.resourceStatus == 'Allocated' || workItem.resourceStatus == 'Started'">Reallocate</span>
                             <span *ngIf="!(workItem.resourceStatus == 'Allocated' || workItem.resourceStatus == 'Started')">Allocate</span>
                         </button>
-                        <button md-raised-button color="primary" type="button" (click)="intendRestart()">
+                        <button mat-raised-button color="primary" type="button" (click)="intendRestart()">
                             <span class="fa fa-play"></span>
                             <span *ngIf="workItem.resourceStatus == 'Started'">Restart</span>
                             <span *ngIf="!(workItem.resourceStatus == 'Started')">Start</span>
                         </button>
                     </div>
-                </md-tab>
-            </md-tab-group>
+                </mat-tab>
+            </mat-tab-group>
 
 		</div>
 	</div>

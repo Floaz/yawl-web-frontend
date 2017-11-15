@@ -4,13 +4,13 @@
 		<h1>Notifications</h1>
 		<ul class="page-header-actions">
 			<li>
-                <button [mdMenuTriggerFor]="moreMenu">
+                <button [matMenuTriggerFor]="moreMenu">
                     <span class="fa fa-ellipsis-v"></span>
                 </button>
-                <md-menu #moreMenu="mdMenu">
-                    <button md-menu-item (click)="reload()">Refresh Notifications</button>
-                    <button md-menu-item (click)="navigateToObservationsList()">Manage Observations</button>
-                </md-menu>
+                <mat-menu #moreMenu="matMenu">
+                    <button mat-menu-item (click)="reload()">Refresh Notifications</button>
+                    <button mat-menu-item (click)="navigateToObservationsList()">Manage Observations</button>
+                </mat-menu>
 			</li>
 		</ul>
 	</div>
@@ -19,11 +19,11 @@
         <div class="half-container">
             <div class="half">
                 <div class="card">
-                    <md-tab-group selectedIndex="0" (selectedIndexChange)="setMode($event)">
-                        <md-tab label="Active"></md-tab>
-                        <md-tab label="Delayed"></md-tab>
-                        <md-tab label="Muted"></md-tab>
-                    </md-tab-group>
+                    <mat-tab-group selectedIndex="0" (selectedIndexChange)="setMode($event)">
+                        <mat-tab label="Active"></mat-tab>
+                        <mat-tab label="Delayed"></mat-tab>
+                        <mat-tab label="Muted"></mat-tab>
+                    </mat-tab-group>
                     
                     <notifications-list #list [mode]="mode" [selectedItem]="selectedNotificationId"></notifications-list>
                 </div>
@@ -59,7 +59,7 @@
                         </li>
                     </ul>
                     <textarea [(ngModel)]="newComment" class="new-comment-field"></textarea>
-                    <button md-raised-button color="accent" (click)="submitComment()">
+                    <button mat-raised-button color="accent" (click)="submitComment()">
                         Submit <span class="fa fa-send"></span>
                     </button>
 
@@ -67,13 +67,13 @@
 
                     <div *ngIf="selectedNotification.delayDate">
                         <div>Delayed until: {{selectedNotification.delayDate*1000 | date:"medium"}}</div>
-                        <button md-raised-button color="accent" (click)="resetDelay()">
+                        <button mat-raised-button color="accent" (click)="resetDelay()">
                             Reset delay <span class="fa fa-send"></span>
                         </button>
                     </div>
                     <div *ngIf="!selectedNotification.delayDate">
                         <time-input [(time)]="newDelay"></time-input>
-                        <button md-raised-button color="accent" (click)="setDelay()">
+                        <button mat-raised-button color="accent" (click)="setDelay()">
                             Set delay <span class="fa fa-send"></span>
                         </button>
                     </div>

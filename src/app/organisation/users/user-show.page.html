@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-		<button (click)="gotoList()" md-raised-button color="accent">
+		<button (click)="gotoList()" mat-raised-button color="accent">
 			<span class="fa fa-arrow-left"></span> User list
 		</button>
 	</div>
@@ -28,8 +28,8 @@
 
 			<div class="divider"></div>
 
-            <md-tab-group class="yd-tabs-with-padding">
-                <md-tab label="Profile">
+            <mat-tab-group class="yd-tabs-with-padding">
+                <mat-tab label="Profile">
                     <div class="row half-container">
                         <div class="half">
                             <div class="section">
@@ -62,36 +62,36 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <button md-button color="primary" type="button" (click)="intendEdit()">
+                        <button mat-button color="primary" type="button" (click)="intendEdit()">
                             Edit data <span class="fa fa-pencil"></span>
                         </button>
 
-                        <button md-button color="primary" type="button" (click)="intendChangePassword()">
+                        <button mat-button color="primary" type="button" (click)="intendChangePassword()">
                             Change password <span class="fa fa-key"></span>
                         </button>
 
-                        <button md-button color="primary" type="button" (click)="intendRemove()">
+                        <button mat-button color="primary" type="button" (click)="intendRemove()">
                             Delete user <span class="fa fa-trash-o"></span>
                         </button>
                     </div>
-                </md-tab>
+                </mat-tab>
 
-                <md-tab label="Roles">
+                <mat-tab label="Roles">
                     <user-roles-panel [user]="user"></user-roles-panel>
-                </md-tab>
+                </mat-tab>
 
-                <md-tab label="Capabilities">
+                <mat-tab label="Capabilities">
                     <user-capabilities-panel [user]="user"></user-capabilities-panel>
-                </md-tab>
+                </mat-tab>
 
-                <md-tab label="Positions">
+                <mat-tab label="Positions">
                     <user-positions-panel [user]="user"></user-positions-panel>
-                </md-tab>
+                </mat-tab>
 
-                <md-tab label="Workitems">
+                <mat-tab label="Workitems">
                     <user-work-items-panel [user]="user"></user-work-items-panel>
-                </md-tab>
-            </md-tab-group>
+                </mat-tab>
+            </mat-tab-group>
 		</div>
 	</div>
 </default-page>

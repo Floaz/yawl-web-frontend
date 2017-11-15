@@ -1,49 +1,51 @@
 <form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
 
     <div class="row">
-        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-            <input mdInput
+        <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <input matInput
                     placeholder="Label"
                     name="name"
                     minlength="3"
                     maxlength="50"
                     [(ngModel)]="orgGroup.name"
                     required>
-        </md-form-field>
+        </mat-form-field>
     </div>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Type" [(ngModel)]="orgGroup.type" name="type" required>
-            <md-option value="GROUP">Group</md-option>
-            <md-option value="TEAM">Team</md-option>
-            <md-option value="UNIT">Unit</md-option>
-            <md-option value="BRANCH">Branch</md-option>
-            <md-option value="DIVISION">Division</md-option>
-            <md-option value="CLUSTER">Cluster</md-option>
-            <md-option value="DEPARTMENT">Department</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select placeholder="Type" [(ngModel)]="orgGroup.type" name="type" required>
+                <mat-option value="GROUP">Group</mat-option>
+                <mat-option value="TEAM">Team</mat-option>
+                <mat-option value="UNIT">Unit</mat-option>
+                <mat-option value="BRANCH">Branch</mat-option>
+                <mat-option value="DIVISION">Division</mat-option>
+                <mat-option value="CLUSTER">Cluster</mat-option>
+                <mat-option value="DEPARTMENT">Department</mat-option>
+            </mat-select>
+        </mat-form-field>
     </div>
     
     <div class="row">
-        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-            <textarea mdInput
+        <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea matInput
                     placeholder="Description (Optional)"
                     name="description"
                     rows="4"
                     [(ngModel)]="orgGroup.description">
             </textarea>
-        </md-form-field>
+        </mat-form-field>
     </div>
 
     <div class="row">
-        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-            <textarea mdInput
+        <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+            <textarea matInput
                     placeholder="Notes (Optional)"
                     name="notes"
                     rows="4"
                     [(ngModel)]="orgGroup.notes">
             </textarea>
-        </md-form-field>
+        </mat-form-field>
     </div>
 
 	<div class="row">
@@ -52,10 +54,10 @@
 	</div>
 
 	<div class="form-actions noborder">
-		<button md-raised-button color="primary" type="button" (click)="cancel()">
+		<button mat-raised-button color="primary" type="button" (click)="cancel()">
 			<span class="fa fa-arrow-left"></span> Cancel
 		</button>
-		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+		<button mat-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
 			Save group <span class="fa fa-send"></span>
 		</button>
 	</div>

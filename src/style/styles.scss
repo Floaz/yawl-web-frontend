@@ -688,7 +688,7 @@ dashlet-panel {
   margin-bottom: 20px;
 }
 
-.dashlet-add-panel md-input {
+.dashlet-add-panel mat-input {
 	width: 100%;
 }
 
@@ -998,12 +998,12 @@ running-cases-table-dashlet table th {
 }
 
 
-md-checkbox {
+mat-checkbox {
     display: block;
     margin-bottom: 10px;
 }
 
-md-card.without-padding {
+mat-card.without-padding {
     padding: 0;
 }
 
@@ -1083,7 +1083,7 @@ md-card.without-padding {
     background-color: rgba(255,255,255,0.15);
 }
 
-.yd-form md-form-field {
+.yd-form mat-form-field {
     font-size: 1.4em;
 }
 

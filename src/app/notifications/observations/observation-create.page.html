@@ -15,29 +15,30 @@
         <div class="card">
             <div class="card-body with-padding">
                 <div class="row">
-                    <md-select class="yd-input-full-width"
-                                placeholder="Observation type"
-                                [(ngModel)]="selectedType"
-                                [disabled]="mode != 'typeSelection'"
-                                name="observerSelection" required>
-                                <md-option *ngFor="let observer of observers" [value]="observer">{{observer.displayName}}</md-option>
-                    </md-select>
+                    <mat-form-field class="yd-input-full-width">
+                        <mat-select placeholder="Observation type"
+                                    [(ngModel)]="selectedType"
+                                    [disabled]="mode != 'typeSelection'"
+                                    name="observerSelection" required>
+                                    <mat-option *ngFor="let observer of observers" [value]="observer">{{observer.displayName}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
 
                 <div class="row yd-form">
-                    <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-                        <input mdInput
+                    <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+                        <input matInput
                                 placeholder="Observation title (Optional)"
                                 name="title"
                                 [(ngModel)]="title">
-                    </md-form-field>
+                    </mat-form-field>
                 </div>
 
                 <div class="form-actions noborder" [hidden]="mode != 'typeSelection'">
-                    <button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
+                    <button mat-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
                         Cancel
                     </button>
-                    <button md-raised-button color="accent" [disabled]="!selectedType" (click)="onSelectionComplete()">
+                    <button mat-raised-button color="accent" [disabled]="!selectedType" (click)="onSelectionComplete()">
                         Continue <span class="fa fa-send"></span>
                     </button>
                 </div>
@@ -51,10 +52,10 @@
 				<div class="card-body with-padding">
 					<div #settingsChild></div>
 					<div class="form-actions noborder">
-						<button md-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
+						<button mat-raised-button color="accent" type="button" (click)="navigateToObservationListPage()">
 							Cancel
 						</button>
-						<button md-raised-button color="accent" [disabled]="isLoading" (click)="onSettingsComplete()">
+						<button mat-raised-button color="accent" [disabled]="isLoading" (click)="onSettingsComplete()">
 							Save <span class="fa fa-send"></span>
 						</button>
 					</div>

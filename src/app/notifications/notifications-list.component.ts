@@ -1,7 +1,7 @@
 import { Component, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { MdMenuTrigger } from '@angular/material';
+import { MatMenuTrigger } from '@angular/material';
 
 import { PopupMenuService } from '../util/popup-menu.service';
 
@@ -23,8 +23,8 @@ export class NotificationsListComponent {
 	@Input("selectedItem")
     selectedItem : string = null;
     
-    @ViewChild(MdMenuTrigger)
-    contextMenu: MdMenuTrigger;
+    @ViewChild(MatMenuTrigger)
+    contextMenu: MatMenuTrigger;
 
 	notifications : any = [];
 	displayedNotifications : any = [];

@@ -3,27 +3,27 @@
 	<div class="row">
         <div class="half-container">
             <div class="half">
-                <md-form-field class="yd-input-full-width">
-                    <input mdInput
+                <mat-form-field class="yd-input-full-width">
+                    <input matInput
                             placeholder="Lastname"
                             name="lastname"
                             minlength="3"
                             maxlength="50"
                             [(ngModel)]="user.lastname"
                             required>
-                </md-form-field>
+                </mat-form-field>
             </div>
 
             <div class="half">
-                <md-form-field class="yd-input-full-width">
-                    <input mdInput
+                <mat-form-field class="yd-input-full-width">
+                    <input matInput
                             placeholder="Firstname"
                             name="firstname"
                             minlength="3"
                             maxlength="50"
                             [(ngModel)]="user.firstname"
                             required>
-                </md-form-field>
+                </mat-form-field>
             </div>
         </div>
 	</div>
@@ -31,27 +31,27 @@
 	<div class="row">
         <div class="half-container">
 		    <div class="half">
-                <md-form-field class="yd-input-full-width">
-                    <input mdInput
+                <mat-form-field class="yd-input-full-width">
+                    <input matInput
                             placeholder="Username"
                             name="username"
                             minlength="3"
                             maxlength="50"
                             [(ngModel)]="user.username"
                             required>
-                </md-form-field>
+                </mat-form-field>
 		    </div>
 
             <div class="half">
-                <md-form-field class="yd-input-full-width">
-                    <input mdInput
+                <mat-form-field class="yd-input-full-width">
+                    <input matInput
                             placeholder="Password"
                             name="password"
                             minlength="3"
                             maxlength="50"
                             [(ngModel)]="user.password"
                             required>
-                </md-form-field>
+                </mat-form-field>
             </div>
         </div>
 	</div>
@@ -59,34 +59,34 @@
 	<div class="row">
         <div class="half-container">
             <div class="half">
-                <md-form-field class="yd-input-full-width">
-                    <textarea mdInput
+                <mat-form-field class="yd-input-full-width">
+                    <textarea matInput
                         placeholder="Description (Optional)"
                         name="description"
                         rows="6"
                         [(ngModel)]="user.description">
                     </textarea>
-                </md-form-field>
+                </mat-form-field>
             </div>
 
             <div class="half">
-                <md-form-field class="yd-input-full-width">
-                    <textarea mdInput
+                <mat-form-field class="yd-input-full-width">
+                    <textarea matInput
                         placeholder="Notes (Optional)"
                         name="notes"
                         rows="6"
                         [(ngModel)]="user.notes">
                     </textarea>
-                </md-form-field>
+                </mat-form-field>
             </div>
         </div>
 	</div>
 
 	<div class="form-actions noborder">
-		<button md-raised-button color="primary" type="button" (click)="cancel()">
+		<button mat-raised-button color="primary" type="button" (click)="cancel()">
 			<span class="fa fa-arrow-left"></span> Cancel
 		</button>
-		<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+		<button mat-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
 			Save user <span class="fa fa-send"></span>
 		</button>
 	</div>

@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-		<button (click)="gotoList()" md-raised-button color="accent">
+		<button (click)="gotoList()" mat-raised-button color="accent">
 			<span class="fa fa-arrow-left"></span> Group list
 		</button>
 	</div>
@@ -27,8 +27,8 @@
 
 			<div class="divider"></div>
 
-            <md-tab-group class="yd-tabs-with-padding">
-                <md-tab label="Details">
+            <mat-tab-group class="yd-tabs-with-padding">
+                <mat-tab label="Details">
                     <div class="row">
                         <div class="half-container">
                             <div class="half">
@@ -62,22 +62,22 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <button md-button color="primary" type="button" (click)="intendEdit()">
+                        <button mat-button color="primary" type="button" (click)="intendEdit()">
                             Edit <span class="fa fa-pencil"></span>
                         </button>
     
-                        <button md-button color="primary" type="button" (click)="intendRemove()">
+                        <button mat-button color="primary" type="button" (click)="intendRemove()">
                             Delete group <span class="fa fa-trash-o"></span>
                         </button>
                     </div>
-                </md-tab>
-                <md-tab label="Child groups">
+                </mat-tab>
+                <mat-tab label="Child groups">
                     <org-group-childs-panel [org-group]="orgGroup"></org-group-childs-panel>
-                </md-tab>
-                <md-tab label="Positions">
+                </mat-tab>
+                <mat-tab label="Positions">
                     <org-group-positions-panel [org-group]="orgGroup"></org-group-positions-panel>
-                </md-tab>
-            </md-tab-group>
+                </mat-tab>
+            </mat-tab-group>
 
 
 		</div>

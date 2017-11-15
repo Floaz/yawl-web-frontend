@@ -1,20 +1,22 @@
 
 <div class="row">
-    <md-chip-list>
-        <md-chip *ngFor="let item of specificationsWrapper" >
+    <mat-chip-list>
+        <mat-chip *ngFor="let item of specificationsWrapper" >
             {{item.displayName}}
             <a (click)="remove(item.id)" class="close">
                 <span class="fa fa-remove"></span>
             </a>
-        </md-chip>
-    </md-chip-list>
+        </mat-chip>
+    </mat-chip-list>
 
 	<div class="yd-select-and-add">
-        <md-select class="yd-input-full-width" [(ngModel)]="selectedSpecification" name="selectedSpecification">
-			<md-option *ngFor="let item of getPossibleSpecifications()" [value]="item">{{item.uri}} {{item.version}}</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select [(ngModel)]="selectedSpecification" name="selectedSpecification">
+                <mat-option *ngFor="let item of getPossibleSpecifications()" [value]="item">{{item.uri}} {{item.version}}</mat-option>
+            </mat-select>
+        </mat-form-field>
 
-		<button md-raised-button color="accent" (click)="addSpecification()" [disabled]="!selectedSpecification">
+		<button mat-raised-button color="accent" (click)="addSpecification()" [disabled]="!selectedSpecification">
 			<span class="fa fa-plus"></span>
 		</button>
 	</div>

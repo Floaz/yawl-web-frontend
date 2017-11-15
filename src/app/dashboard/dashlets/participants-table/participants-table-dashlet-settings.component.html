@@ -5,31 +5,33 @@
 	<div class="row">
 		<p>Visible columns</p>
 
-        <md-checkbox [(ngModel)]="settings.showColumnUsername">Participant's Username</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnUsername">Participant's Username</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnName">Participant's Name</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnName">Participant's Name</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnNumberOffered">&#35; Offered Work Items</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnNumberOffered">&#35; Offered Work Items</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnNumberAccepted">&#35; Accepted Work Items</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnNumberAccepted">&#35; Accepted Work Items</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnNumberStarted">&#35; Started Work Items</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnNumberStarted">&#35; Started Work Items</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnNumberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnNumberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnIdleTimeAccepted">Idle Time Accepted</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnIdleTimeAccepted">Idle Time Accepted</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnIdleTimeStarted">Idle Time Started</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnIdleTimeStarted">Idle Time Started</mat-checkbox>
 
-        <md-checkbox [(ngModel)]="settings.showColumnSumIdleTime">Sum Idle Time</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.showColumnSumIdleTime">Sum Idle Time</mat-checkbox>
 
 	</div>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Format of the participant's name" [(ngModel)]="settings.sortName" name="sortName" required>
-            <md-option value="firstname">Firstname Lastname</md-option>
-            <md-option value="lastname">Lastname, Firstname</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select placeholder="Format of the participant's name" [(ngModel)]="settings.sortName" name="sortName" required>
+                <mat-option value="firstname">Firstname Lastname</mat-option>
+                <mat-option value="lastname">Lastname, Firstname</mat-option>
+            </mat-select>
+        </mat-form-field>
 	</div>
 </div>
 
@@ -37,25 +39,29 @@
 	<h2>Sorting</h2>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Sort column" [(ngModel)]="settings.sortColumn" name="sortColumn" required>
-            <md-option value="username">Participant's Username</md-option>
-            <md-option value="lastname">Participant's Lastname</md-option>
-            <md-option value="firstname">Participant's Firstname</md-option>
-            <md-option value="numberOffered">&#35; Offered Work Items</md-option>
-            <md-option value="numberAccepted">&#35; Accepted Work Items</md-option>
-            <md-option value="numberStarted">&#35; Started Work Items</md-option>
-            <md-option value="numberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</md-option>
-            <md-option value="idleTimeAccepted">Idle Time Accepted</md-option>
-            <md-option value="idleTimeStarted">Idle Time Started</md-option>
-            <md-option value="sumIdleTime">Sum Idle Time</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select class="yd-input-full-width" placeholder="Sort column" [(ngModel)]="settings.sortColumn" name="sortColumn" required>
+                <mat-option value="username">Participant's Username</mat-option>
+                <mat-option value="lastname">Participant's Lastname</mat-option>
+                <mat-option value="firstname">Participant's Firstname</mat-option>
+                <mat-option value="numberOffered">&#35; Offered Work Items</mat-option>
+                <mat-option value="numberAccepted">&#35; Accepted Work Items</mat-option>
+                <mat-option value="numberStarted">&#35; Started Work Items</mat-option>
+                <mat-option value="numberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</mat-option>
+                <mat-option value="idleTimeAccepted">Idle Time Accepted</mat-option>
+                <mat-option value="idleTimeStarted">Idle Time Started</mat-option>
+                <mat-option value="sumIdleTime">Sum Idle Time</mat-option>
+            </mat-select>
+        </mat-form-field>
 	</div>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Sort mode" [(ngModel)]="settings.sortColumnDirection" name="sortColumnDirection" required>
-			<md-option value="ASC">Ascending</md-option>
-			<md-option value="DESC">Descending</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select placeholder="Sort mode" [(ngModel)]="settings.sortColumnDirection" name="sortColumnDirection" required>
+                <mat-option value="ASC">Ascending</mat-option>
+                <mat-option value="DESC">Descending</mat-option>
+            </mat-select>
+        </mat-form-field>
 	</div>
 </div>
 
@@ -63,7 +69,7 @@
 	<h2>Selection Participants</h2>
 
 	<div class="row">
-		<md-checkbox [(ngModel)]="settings.customSelection">Custom selection</md-checkbox>
+		<mat-checkbox [(ngModel)]="settings.customSelection">Custom selection</mat-checkbox>
 	</div>
 
 	<div [hidden]="!settings.customSelection">
@@ -74,40 +80,44 @@
 	</div>
 
 	<div class="row">
-        <md-checkbox [(ngModel)]="settings.autoSelection">Automatic selection</md-checkbox>
+        <mat-checkbox [(ngModel)]="settings.autoSelection">Automatic selection</mat-checkbox>
 	</div>
 
 	<div [hidden]="!settings.autoSelection">
 
 		<div class="row">
-            <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-                <input mdInput
+            <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+                <input matInput
                         placeholder="Number of selected participants"
                         name="autoSelectionNumber"
                         type="number"
                         [(ngModel)]="settings.autoSelectionNumber"
                         required>
-            </md-form-field>
+            </mat-form-field>
 		</div>
 
 		<div class="row">
-            <md-select class="yd-input-full-width" placeholder="Auto selection mode" [(ngModel)]="settings.autoSelectionMode" name="autoSelectionMode" required>
-				<md-option value="max">Maximum Value</md-option>
-				<md-option value="min">Minimum Value</md-option>
-				<md-option value="random">Random</md-option>
-            </md-select>
+            <mat-form-field class="yd-input-full-width">
+                <mat-select placeholder="Auto selection mode" [(ngModel)]="settings.autoSelectionMode" name="autoSelectionMode" required>
+                    <mat-option value="max">Maximum Value</mat-option>
+                    <mat-option value="min">Minimum Value</mat-option>
+                    <mat-option value="random">Random</mat-option>
+                </mat-select>
+            </mat-form-field>
 		</div>
 
 		<div class="row" [hidden]="settings.autoSelectionMode != 'max' && settings.autoSelectionMode != 'min'">
-            <md-select class="yd-input-full-width" placeholder="Auto selection sort column" [(ngModel)]="settings.autoSelectionSortColumn" name="autoSelectionSortColumn" required>
-				<md-option value="numberOffered">&#35; Offered Work Items</md-option>
-				<md-option value="numberAccepted">&#35; Accepted Work Items</md-option>
-				<md-option value="numberStarted">&#35; Started Work Items</md-option>
-				<md-option value="numberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</md-option>
-				<md-option value="idleTimeAccepted">Idle Time Accepted</md-option>
-				<md-option value="idleTimeStarted">Idle Time Started</md-option>
-				<md-option value="sumIdleTime">Sum Idle Time</md-option>
-            </md-select>
+            <mat-form-field class="yd-input-full-width">
+                <mat-select placeholder="Auto selection sort column" [(ngModel)]="settings.autoSelectionSortColumn" name="autoSelectionSortColumn" required>
+                    <mat-option value="numberOffered">&#35; Offered Work Items</mat-option>
+                    <mat-option value="numberAccepted">&#35; Accepted Work Items</mat-option>
+                    <mat-option value="numberStarted">&#35; Started Work Items</mat-option>
+                    <mat-option value="numberAcceptedAndStarted">&#35; Accepted &and; Started Work Items</mat-option>
+                    <mat-option value="idleTimeAccepted">Idle Time Accepted</mat-option>
+                    <mat-option value="idleTimeStarted">Idle Time Started</mat-option>
+                    <mat-option value="sumIdleTime">Sum Idle Time</mat-option>
+                </mat-select>
+            </mat-form-field>
 		</div>
 
 		<div class="row">

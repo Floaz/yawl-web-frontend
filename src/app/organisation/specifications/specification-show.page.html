@@ -7,7 +7,7 @@
 	</div>
 
 	<div class="row">
-		<button (click)="gotoList()" md-raised-button color="accent">
+		<button (click)="gotoList()" mat-raised-button color="accent">
 			<span class="fa fa-arrow-left"></span> Specification list
 		</button>
 	</div>
@@ -28,18 +28,18 @@
 
 			<div class="divider"></div>
 
-            <md-tab-group>
-                <md-tab label="Cases">
+            <mat-tab-group>
+                <mat-tab label="Cases">
                     <div class="row">
                         <case-list [cases]="cases" (onCancel)="intendCancel($event)"></case-list>
                     </div>
-                </md-tab>
-                <md-tab label="Work Items">
+                </mat-tab>
+                <mat-tab label="Work Items">
                     <div class="row">
                         <work-item-list [work-items]="workItems" [showDetailsLink]="true"></work-item-list>
                     </div>
-                </md-tab>
-            </md-tab-group>
+                </mat-tab>
+            </mat-tab-group>
 		</div>
 	</div>
 </default-page>

@@ -5,15 +5,15 @@
 			<h1>{{dashboardData.title}}</h1>
 			<ul class="page-header-actions">
 				<li>
-					<button [mdMenuTriggerFor]="moreMenu">
+					<button [matMenuTriggerFor]="moreMenu">
 						<span class="fa fa-ellipsis-v"></span>
                     </button>
-                    <md-menu #moreMenu="mdMenu">
-                        <button md-menu-item (click)="fixedColumnLayoutComponent.reload()">Refresh Dashboard</button>
-                        <button md-menu-item (click)="fixedColumnLayoutComponent.startEditMode()">Manage Dashlets</button>
-                        <button md-menu-item (click)="fixedColumnLayoutComponent.startLayoutChangeMode()">Change columns</button>
-                        <button md-menu-item (click)="navigateToDashboardList()">Manage Dashboards</button>
-                    </md-menu>
+                    <mat-menu #moreMenu="matMenu">
+                        <button mat-menu-item (click)="fixedColumnLayoutComponent.reload()">Refresh Dashboard</button>
+                        <button mat-menu-item (click)="fixedColumnLayoutComponent.startEditMode()">Manage Dashlets</button>
+                        <button mat-menu-item (click)="fixedColumnLayoutComponent.startLayoutChangeMode()">Change columns</button>
+                        <button mat-menu-item (click)="navigateToDashboardList()">Manage Dashboards</button>
+                    </mat-menu>
 				</li>
 			</ul>
 		</div>

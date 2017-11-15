@@ -15,7 +15,7 @@ import { Modal } from '../modal/modal.decorator';
 			<div class="card-content">
 				<p>{{message}}</p>
 				<div class="btn-group">
-					<button md-raised-button color="primary" (click)="onOk()">
+					<button mat-raised-button color="primary" (click)="onOk()">
 						<span>Ok</span>
 					</button>
 				</div>

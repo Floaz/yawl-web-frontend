@@ -7,19 +7,19 @@
 	</div>
 
 	<div class="row">
-		<button (click)="goBack()" md-raised-button color="accent" *ngIf="selectedCategoryId">
+		<button (click)="goBack()" mat-raised-button color="accent" *ngIf="selectedCategoryId">
 			<span class="fa fa-arrow-left"></span> Back
 		</button>
-		<button md-raised-button color="accent" type="button" (click)="openFormForNewAsset()" *ngIf="selectedCategoryId != null">
+		<button mat-raised-button color="accent" type="button" (click)="openFormForNewAsset()" *ngIf="selectedCategoryId != null">
 			Create asset
 		</button>
-		<button md-raised-button color="accent" type="button" (click)="openFormForNewSubCategory()" *ngIf="selectedCategoryId != null && selectedSubCategoryId == null">
+		<button mat-raised-button color="accent" type="button" (click)="openFormForNewSubCategory()" *ngIf="selectedCategoryId != null && selectedSubCategoryId == null">
 			Create sub category
 		</button>
-		<button md-raised-button color="accent" type="button" (click)="openFormForNewCategory()" *ngIf="selectedCategoryId == null">
+		<button mat-raised-button color="accent" type="button" (click)="openFormForNewCategory()" *ngIf="selectedCategoryId == null">
 			Create category
 		</button>
-		<button (click)="reload()" md-raised-button color="accent">
+		<button (click)="reload()" mat-raised-button color="accent">
 			<span class="fa fa-refresh"></span> Aktualisieren
 		</button>
 	</div>

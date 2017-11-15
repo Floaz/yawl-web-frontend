@@ -1,6 +1,6 @@
 import { NgModule }      from '@angular/core';
 
-import { MdNativeDateModule } from '@angular/material';
+import { MatNativeDateModule } from '@angular/material';
 import { CovalentDialogsModule } from '@covalent/core';
 
 
@@ -11,12 +11,12 @@ import { MyDateAdapter } from './material-datetime-adapter';
 
 @NgModule({
 	imports: [
-        MdNativeDateModule,
+        MatNativeDateModule,
         CovalentDialogsModule,
     ],
     providers: [
         {provide: DateAdapter, useClass: MyDateAdapter},
-        //{provide: MdPaginatorIntl, useClass: MyPaginatorIntl}
+        //{provide: MatPaginatorIntl, useClass: MyPaginatorIntl}
     ]
 })
 export class MaterialRootModule { }

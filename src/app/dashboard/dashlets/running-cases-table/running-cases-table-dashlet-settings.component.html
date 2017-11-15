@@ -3,17 +3,21 @@
 	<h2>Sorting</h2>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Sort column" [(ngModel)]="settings.sortColumn" name="sortColumn" required>
-			<md-option value="specificationName">Specification</md-option>
-			<md-option value="numberCases">&#35; Running Cases</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select class="yd-input-full-width" placeholder="Sort column" [(ngModel)]="settings.sortColumn" name="sortColumn" required>
+                <mat-option value="specificationName">Specification</mat-option>
+                <mat-option value="numberCases">&#35; Running Cases</mat-option>
+            </mat-select>
+        </mat-form-field>
 	</div>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Sort mode" [(ngModel)]="settings.sortColumnDirection" name="sortColumnDirection" required>
-			<md-option value="ASC">Ascending</md-option>
-			<md-option value="DESC">Descending</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select class="yd-input-full-width" placeholder="Sort mode" [(ngModel)]="settings.sortColumnDirection" name="sortColumnDirection" required>
+                <mat-option value="ASC">Ascending</mat-option>
+                <mat-option value="DESC">Descending</mat-option>
+            </mat-select>
+        </mat-form-field>
 	</div>
 </div>
 
@@ -22,10 +26,12 @@
 	<h2>Selection Specifications</h2>
 
 	<div class="row">
-        <md-select class="yd-input-full-width" placeholder="Filter mode" [(ngModel)]="settings.selectionMode" name="selectionMode" required>
-            <md-option value="blacklist">All except selection</md-option>
-            <md-option value="whitelist">Only selection</md-option>
-        </md-select>
+        <mat-form-field class="yd-input-full-width">
+            <mat-select class="yd-input-full-width" placeholder="Filter mode" [(ngModel)]="settings.selectionMode" name="selectionMode" required>
+                <mat-option value="blacklist">All except selection</mat-option>
+                <mat-option value="whitelist">Only selection</mat-option>
+            </mat-select>
+        </mat-form-field>
 	</div>
 
 	<div class="row">

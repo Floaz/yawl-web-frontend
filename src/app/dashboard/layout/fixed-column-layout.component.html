@@ -2,7 +2,7 @@
 
 <div *ngIf="mode == 'edit' || mode == 'layoutchange'" class="row">
 	<div class="col l12" style="padding: 0 10px">
-		<button (click)="mode = 'show'" md-raised-button color="accent">
+		<button (click)="mode = 'show'" mat-raised-button color="accent">
 			<span class="fa fa-check"></span> Close edit mode
 		</button>
 	</div>
@@ -10,7 +10,7 @@
 
 <div *ngIf="mode == 'new'" class="row">
 	<div class="col l12" style="padding: 0 10px">
-		<button (click)="mode = 'edit'" md-raised-button color="accent">
+		<button (click)="mode = 'edit'" mat-raised-button color="accent">
 			<span class="fa fa-arrow-left"></span> Cancel
 		</button>
 	</div>
@@ -68,9 +68,9 @@
                 <div class="card-header gray">
                     <h2 *ngIf="mode != 'edit'">{{item.title}}&nbsp;</h2>
                     <div *ngIf="mode == 'edit'">
-                        <md-form-field>
-                            <input mdInput [ngModel]="item.title" type="text" (ngModelChange)="renameDashlet(item, $event)"/>
-                        </md-form-field>
+                        <mat-form-field>
+                            <input matInput [ngModel]="item.title" type="text" (ngModelChange)="renameDashlet(item, $event)"/>
+                        </mat-form-field>
                     </div>
                     <ul class="card-header-actions">
                         <li *ngIf="mode != 'edit'">

@@ -5,13 +5,13 @@
 	</div>
 	<div class="card-content">
 		<div class="row">
-            <md-input-container class="filter-input">
-                <input mdInput #searchBox
+            <mat-form-field class="filter-input">
+                <input matInput #searchBox
                         type="text"
                         [(ngModel)]="searchQuery"
                         (keyup)="filter()"
                         placeholder="Search">
-            </md-input-container>
+            </mat-form-field>
 		</div>
 		<div class="row">
 			<capability-list [capabilities]="selectableCapabilities" (selectedItemChange)="select($event)"></capability-list>
@@ -20,10 +20,10 @@
 
 	<div class="card-footer">
 		<div class="btn-group">
-			<button md-raised-button color="primary" (click)="closeModal()">
+			<button mat-raised-button color="primary" (click)="closeModal()">
 				<span>Cancel</span>
 			</button>
-			<button md-raised-button color="primary" (click)="select(null)" *ngIf="showNoSelectionButton">
+			<button mat-raised-button color="primary" (click)="select(null)" *ngIf="showNoSelectionButton">
 				<span>No capability</span>
 			</button>
 		</div>

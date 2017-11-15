@@ -7,13 +7,13 @@
 	</div>
 
 	<div class="row">
-		<button md-raised-button color="accent" type="button" (click)="openFormForNew()">
+		<button mat-raised-button color="accent" type="button" (click)="openFormForNew()">
 			Upload new specification
 		</button>
 	</div>
 
 	<div class="row">
-		<md-card class="without-padding">
+		<mat-card class="without-padding">
             <div *ngFor="let item of specifications" class="role-list-element">
                 <div class="role-list-name">{{item.uri}}</div>
                 <div class="role-list-description">{{item.version}}</div>
@@ -40,6 +40,6 @@
                     </li>
                 </ul>
             </div>
-		</md-card>
+		</mat-card>
 	</div>
 </default-page>

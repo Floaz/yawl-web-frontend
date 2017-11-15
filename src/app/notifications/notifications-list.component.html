@@ -20,13 +20,13 @@
 				since {{item.creationDate | timedifference | duration}}
 			</div>
         </a>
-        <span [mdMenuTriggerFor]="contextMenu"></span>
-        <md-menu #contextMenu="mdMenu">
-            <button md-menu-item (click)="gotoWorkItemDetails(item.data.workItemId)" *ngIf="item.data.workItemId">Goto work item details</button>
-            <button md-menu-item (click)="gotoUserDetails(item.data.userId)" *ngIf="item.data.userId">Goto user details</button>
-            <button md-menu-item (click)="muteNotification(item)" *ngIf="item.status == 0">Mute</button>
-            <button md-menu-item (click)="unmuteNotification(item)" *ngIf="item.status == 1">Unmute</button>
-        </md-menu>
+        <span [matMenuTriggerFor]="contextMenu"></span>
+        <mat-menu #contextMenu="matMenu">
+            <button mat-menu-item (click)="gotoWorkItemDetails(item.data.workItemId)" *ngIf="item.data.workItemId">Goto work item details</button>
+            <button mat-menu-item (click)="gotoUserDetails(item.data.userId)" *ngIf="item.data.userId">Goto user details</button>
+            <button mat-menu-item (click)="muteNotification(item)" *ngIf="item.status == 0">Mute</button>
+            <button mat-menu-item (click)="unmuteNotification(item)" *ngIf="item.status == 1">Unmute</button>
+        </mat-menu>
 	</li>
 </ul>
 

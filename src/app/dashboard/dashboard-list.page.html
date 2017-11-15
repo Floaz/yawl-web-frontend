@@ -7,7 +7,7 @@
 	</div>
 
 	<div *ngIf="!showNewDashboardForm" class="row">
-		<button md-raised-button color="accent" type="button" (click)="openDashboardFormForNew()">
+		<button mat-raised-button color="accent" type="button" (click)="openDashboardFormForNew()">
 			Create dashboard
 		</button>
 	</div>
@@ -30,19 +30,19 @@
 			<div class="card-content">
 				<form  (ngSubmit)="saveNewDashboard()" #newDashboardForm="ngForm" class="yd-form">
                     <div class="row">
-                        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-                            <input mdInput
+                        <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+                            <input matInput
                                     placeholder="Title"
                                     name="newDashboardName"
                                     minlength="3"
                                     maxlength="50"
                                     [(ngModel)]="dashboard.title"
                                     required>
-                        </md-form-field>
+                        </mat-form-field>
                     </div>
                             
 					<div class="form-actions noborder">
-						<button md-raised-button color="accent" type="submit" [disabled]="!newDashboardForm.form.valid">
+						<button mat-raised-button color="accent" type="submit" [disabled]="!newDashboardForm.form.valid">
 							Save <span class="fa fa-send"></span>
 						</button>
 					</div>

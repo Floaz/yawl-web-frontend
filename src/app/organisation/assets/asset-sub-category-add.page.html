@@ -9,22 +9,22 @@
 			<div class="card-content">
 				<form  (ngSubmit)="save()" #form="ngForm" class="yd-form">
                     <div class="row">
-                        <md-form-field class="yd-input-full-width" floatPlaceholder="always">
-                            <input mdInput
+                        <mat-form-field class="yd-input-full-width" floatPlaceholder="always">
+                            <input matInput
                                     placeholder="Label"
                                     name="name"
                                     minlength="3"
                                     maxlength="50"
                                     [(ngModel)]="name"
                                     required>
-                        </md-form-field>
+                        </mat-form-field>
                     </div> 
 
 					<div class="form-actions noborder">
-						<button md-raised-button color="primary" type="button" (click)="cancel()">
+						<button mat-raised-button color="primary" type="button" (click)="cancel()">
 							<span class="fa fa-arrow-left"></span> Cancel
 						</button>
-						<button md-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
+						<button mat-raised-button color="primary" type="submit" [disabled]="!form.form.valid">
 							Save asset sub category<span class="fa fa-send"></span>
 						</button>
 					</div>
